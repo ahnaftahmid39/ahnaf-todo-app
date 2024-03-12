@@ -1,4 +1,7 @@
-import "./App.css";
+import { useState } from "react";
+import "./css/App.css";
+import ControlBar from "./components/Controlbar";
+import TodosView from "./components/TodosView";
 
 const mockData = [
   {
@@ -22,8 +25,7 @@ const mockData = [
 ];
 
 function App() {
-  const [todos, setTodos] = useState([]);
-
+  const [todos, setTodos] = useState(mockData);
   return (
     <>
       <div className="wrapper">

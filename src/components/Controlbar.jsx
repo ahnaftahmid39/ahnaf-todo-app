@@ -1,7 +1,7 @@
-const ControlBar = ({}) => {
+const ControlBar = () => {
   return (
-    <div>
-      <button>add</button>
+    <div className="control-bar">
+      <button>new</button>
       <button>trash</button>
       <button>theme</button>
       <button>shortcuts</button>

@@ -1,0 +1,72 @@
+:root {
+  --control-bar-bg-color: #f4f4f4;
+  --control-bar-text-color: #353535;
+}
+
+.wrapper {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  flex-direction: column;
+  width: 100%;
+  padding: 20rem;
+}
+
+.control-bar {
+  /* colors */
+  background-color: var(--control-bar-bg-color);
+  color: var(--control-bar-text-color);
+
+  /* layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* spacing */
+  padding: 1.5rem;
+  gap: 1rem;
+
+  /* positioning */
+  position: fixed;
+  right: 0;
+
+  /* border-radius */
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+.todos-view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+
+  border-radius: 1rem;
+  padding: 1.5rem;
+  width: 100%;
+}
+
+.control-bar button {
+  width: 100%;
+}
+
+.todo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+}
+
+table {
+  text-align: center;
+  border-collapse: collapse; /* 'cellspacing' equivalent */
+}
+
+table td,
+table th {
+  padding: 0.5rem; /* 'cellpadding' equivalent */
+}
