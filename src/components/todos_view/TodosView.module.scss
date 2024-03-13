@@ -9,3 +9,20 @@
   padding: 1.5rem;
   width: 100%;
 }
+
+.todos-view-header {
+  $svg-icon-size: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 0.3rem;
+
+  svg {
+    width: $svg-icon-size;
+    height: $svg-icon-size;
+    min-width: $svg-icon-size;
+    min-height: $svg-icon-size;
+  }
+}

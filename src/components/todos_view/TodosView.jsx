@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { getDateTime } from "../../utils/date";
 import styles from "./TodosView.module.scss";
+import { GoArrowUp, GoArrowDown } from "react-icons/go";
 
 const TodosView = ({
   todos = [
@@ -14,12 +16,35 @@ const TodosView = ({
     },
   ],
 }) => {
+  const [sortBy, setSortBy] = useState("");
+  const [sortOrder, setSortOrder] = useState("asc");
+  const [filter, setFilter] = useState("");
+  const [filterValue, setFilterValue] = useState("");
+
+  const finalTodos = todos
+    .filter((todo) => {
+      return todo[filter] === filterValue;
+    })
+    .sort((a, b) => {
+      if (sortOrder === "asc") {
+        return a[sortBy] > b[sortBy] ? 1 : -1;
+      } else {
+        return a[sortBy] < b[sortBy] ? 1 : -1;
+      }
+    });
+
   return (
     <div className={styles["todos-view"]}>
       <table>
         <thead>
           <tr>
-            <th>Title</th>
+            <th>
+              <div className={styles["todos-view-header"]}>
+                <GoArrowUp />
+                Title
+                <GoArrowDown />
+              </div>
+            </th>
             <th>Description</th>
             <th>Priority</th>
             <th>Status</th>
@@ -28,7 +53,7 @@ const TodosView = ({
         </thead>
 
         <tbody>
-          {todos.map((todo) => {
+          {finalTodos.map((todo) => {
             const createdAt = new Date(todo.createdAt);
             const timeDiff = getDateTime(createdAt);
 
