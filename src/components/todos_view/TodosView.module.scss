@@ -1,0 +1,11 @@
+.todos-view {
+  display: flex;
+  // align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+
+  border-radius: 1rem;
+  padding: 1.5rem;
+  width: 100%;
+}

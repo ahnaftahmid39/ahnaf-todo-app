@@ -1,6 +1,8 @@
+import styles from "./ControlBar.module.scss";
+
 const ControlBar = () => {
   return (
-    <div className="control-bar">
+    <div className={styles["control-bar"]}>
       <button>new</button>
       <button>trash</button>
       <button>theme</button>

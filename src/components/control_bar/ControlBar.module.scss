@@ -1,0 +1,30 @@
+@import "globals";
+
+.control-bar {
+  /* colors */
+  background-color: $control-bar-bg-color;
+  color: $control-bar-text-color;
+
+  /* layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* spacing */
+  padding: 1.5rem;
+  gap: 1rem;
+
+  /* positioning */
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  /* border-radius */
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+.control-bar button {
+  width: 100%;
+}

@@ -1,13 +1,13 @@
 import { useState } from "react";
-import "./css/App.css";
-import ControlBar from "./components/Controlbar";
-import TodosView from "./components/TodosView";
+import "./scss/App.scss";
+import ControlBar from "./components/control_bar/ControlBar";
+import TodosView from "./components/todos_view/TodosView";
 
 const mockData = [
   {
     id: "f1fd83e818a8838138",
     title: "Note 3",
-    description: "Note descrition",
+    description: "Note description AAAAAAAAAAAA",
     priority: 2,
     status: "pending",
     createdAt: "3/12/2024, 11:20:23 AM",
@@ -16,7 +16,7 @@ const mockData = [
   {
     id: "d2fd83e811v8838138",
     title: "Note 3",
-    description: "Note descrition",
+    description: "Note description",
     priority: 2,
     status: "pending",
     createdAt: "3/12/2024, 11:20:23 AM",
