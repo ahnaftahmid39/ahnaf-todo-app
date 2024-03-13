@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./scss/App.scss";
+import "./sass/App.scss";
 import ControlBar from "./components/control_bar/ControlBar";
 import TodosView from "./components/todos_view/TodosView";
 

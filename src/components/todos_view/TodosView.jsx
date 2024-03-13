@@ -32,7 +32,6 @@ const TodosView = ({
             const createdAt = new Date(todo.createdAt);
             const timeDiff = getDateTime(createdAt);
 
-            console.log(createdAt, timeDiff);
             return (
               <tr key={todo.id}>
                 <td>{todo.title}</td>
