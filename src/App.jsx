@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import "./sass/App.scss";
 import ControlBar from "./components/control_bar/ControlBar";
 import TodosView from "./components/todos_view/TodosView";
-import { TODO_KEY, getTodos } from "./utils/PersistStore";
 
 const mockData = [
   {
