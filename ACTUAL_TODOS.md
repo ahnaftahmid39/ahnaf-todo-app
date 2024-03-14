@@ -8,8 +8,9 @@ Tasks have general to specific decomposition
   - [ ] Get all icons
   - [ ] Add css
   - [ ] Add functionality
-    - [ ] Add task
-      - [ ] Add task form modal
+    - [x] Add task
+      - [x] Add task form modal
+      - [ ] Add task modal styles
     - [ ] empty task list
       - [ ] Are you sure want to clear all modal
     - [ ] Add dark mode

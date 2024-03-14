@@ -12,7 +12,6 @@ const Input = ({
   const input = useRef(null);
   useEffect(() => {
     if (input && input.current) {
-      console.log(input.current.value);
       input.current.value = defaultValue ? defaultValue : "";
     }
   }, [resetCounter, defaultValue]);

@@ -2,20 +2,11 @@ import { useState } from "react";
 import { getDateTime } from "../../utils/date";
 import styles from "./TodosView.module.scss";
 import { GoArrowUp, GoArrowDown } from "react-icons/go";
+import useTodoStore from "../../store/todoStore";
 
-const TodosView = ({
-  todos = [
-    {
-      id: "",
-      title: "",
-      description: "",
-      priority: 2,
-      status: "pending",
-      createdAt: "",
-      updatedAt: "",
-    },
-  ],
-}) => {
+const TodosView = () => {
+  const todos = useTodoStore((state) => state.todos);
+
   const [sortBy, setSortBy] = useState("");
   const [sortOrder, setSortOrder] = useState("asc");
   const [filterField, setFilterField] = useState("");
