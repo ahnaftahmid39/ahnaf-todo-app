@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./sass/App.scss";
 import ControlBar from "./components/control_bar/ControlBar";
 import TodosView from "./components/todos_view/TodosView";
+import { TODO_KEY, getTodos } from "./utils/PersistStore";
 
 const mockData = [
   {
@@ -26,6 +27,12 @@ const mockData = [
 
 function App() {
   const [todos, setTodos] = useState(mockData);
+
+  useEffect(() => {
+    // const localTodos = getTodos();
+    // setTodos(localTodos);
+  }, []);
+
   return (
     <>
       <div className="wrapper">

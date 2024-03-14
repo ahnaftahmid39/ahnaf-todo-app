@@ -21,17 +21,18 @@ const TodosView = ({
   const [filter, setFilter] = useState("");
   const [filterValue, setFilterValue] = useState("");
 
-  const finalTodos = todos
-    .filter((todo) => {
-      return todo[filter] === filterValue;
-    })
-    .sort((a, b) => {
-      if (sortOrder === "asc") {
-        return a[sortBy] > b[sortBy] ? 1 : -1;
-      } else {
-        return a[sortBy] < b[sortBy] ? 1 : -1;
-      }
-    });
+  // const finalTodos = todos
+  //   .filter((todo) => {
+  //     return todo[filter] === filterValue;
+  //   })
+  //   .sort((a, b) => {
+  //     if (sortOrder === "asc") {
+  //       return a[sortBy] > b[sortBy] ? 1 : -1;
+  //     } else {
+  //       return a[sortBy] < b[sortBy] ? 1 : -1;
+  //     }
+  //   });
+  const finalTodos = todos;
 
   return (
     <div className={styles["todos-view"]}>
