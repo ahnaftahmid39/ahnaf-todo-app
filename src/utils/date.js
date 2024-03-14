@@ -71,13 +71,13 @@ function getDateTime(date = new Date()) {
     } else if (d1 - d2 == 0) {
       dateStr += "Today at";
     } else {
-      dateStr = date.toDateString();
+      dateStr = date.toLocaleDateString();
     }
   } else {
-    dateStr = date.toDateString();
+    dateStr = date.toLocaleDateString();
   }
 
-  return `${dateStr} ${timeStr}`;
+  return `${dateStr} at ${timeStr}`;
 }
 
 export { dateDiff, getDateTime, timeDiffString };
