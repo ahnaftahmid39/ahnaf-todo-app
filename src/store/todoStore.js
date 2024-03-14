@@ -3,7 +3,10 @@ import * as PersistTodo from "../utils/persistStore";
 
 const useTodoStore = create((set, get) => ({
   todos: [],
-  setTodos: (todos) => set({ todos }),
+  setTodos: (todos) => {
+    set({ todos });
+    PersistTodo.setTodos(todos);
+  },
   addTodo: (todo) => {
     set((state) => ({ todos: [...state.todos, todo] }));
     PersistTodo.setTodos(get().todos);

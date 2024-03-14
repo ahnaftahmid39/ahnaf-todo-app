@@ -46,3 +46,4 @@ Tasks have general to specific decomposition
 
 - [ ] Draggability of tasks
 - [ ] Dragability of control bar
+- [ ] zustand persist state
