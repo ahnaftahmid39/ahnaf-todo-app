@@ -11,13 +11,13 @@ Tasks have general to specific decomposition
     - [x] Add task
       - [x] Add task form modal
       - [ ] Add task modal styles
-    - [ ] empty task list
-      - [ ] Are you sure want to clear all modal
-    - [ ] Add dark mode
-      - [ ] figure out a way add dark theme
-      - [ ] dark colors in sass
+    - [x] empty task list
+      - [x] Are you sure want to clear all modal
+    - [x] Add dark mode
+      - [x] figure out a way add dark theme
+      - [x] dark colors in sass
     - [ ] Add keyboard shortcuts
-      - [ ] Add view shortcuts modal
+      - [x] Add view shortcuts modal
       - [ ] Add actions
       - [ ] Separate store maybe for keybinds?
 
