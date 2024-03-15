@@ -1,4 +1,4 @@
-import { useId, useState } from "react";
+import { useId, useRef, useState } from "react";
 import Input from "../../form-ui/Input";
 import Select from "../../form-ui/Select";
 import useTodoStore from "../../../store/todoStore";
@@ -17,6 +17,7 @@ const AddTodo = () => {
 
   const [todo, setTodo] = useState(emptyTodo);
   const [resetCounter, setResetCounter] = useState(0);
+  const btnRef = useRef(null);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -55,10 +56,18 @@ const AddTodo = () => {
     resetForm();
   };
 
+  const transferFocus = () => {
+    btnRef.current.focus();
+  };
+
   return (
     <>
       <button onClick={openModal}>new</button>
-      <Modal handleClose={closeModal} open={isOpen}>
+      <Modal
+        handleClose={closeModal}
+        open={isOpen}
+        transferFocus={transferFocus}
+      >
         <form>
           <Input
             label={"Title"}
