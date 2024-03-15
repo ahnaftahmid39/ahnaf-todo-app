@@ -5,6 +5,7 @@ import TodosView from "./components/todos_view/TodosView";
 import { getTodos } from "./utils/persistStore";
 import useTodoStore from "./store/todoStore";
 import { useThemeStore } from "./store/themeStore";
+import FilterBar from "./components/filter_bar/FilterBar";
 
 function App() {
   useEffect(() => {
@@ -19,6 +20,7 @@ function App() {
   return (
     <>
       <div className={`wrapper theme-${theme}`}>
+        <FilterBar />
         <ControlBar />
         <TodosView />
       </div>

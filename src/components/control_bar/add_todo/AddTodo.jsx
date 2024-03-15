@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
-import Input from "../../form-ui/Input";
-import Select from "../../form-ui/Select";
+import Input from "../../form_ui/Input";
+import Select from "../../form_ui/Select";
 import useTodoStore from "../../../store/todoStore";
 import { uid } from "uid";
 import Modal from "../../modal/Modal";
@@ -46,7 +46,6 @@ const AddTodo = () => {
 
   const handleFormSubmit = () => {
     const currentDateTime = new Date().toISOString();
-    console.log("currentDateTime", currentDateTime);
     addTodo({
       ...todo,
       id: uid(),
