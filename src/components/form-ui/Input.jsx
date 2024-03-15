@@ -8,8 +8,16 @@ const Input = ({
   type = "text",
   resetCounter,
   placeholder = "",
+  autoFocus = false,
 }) => {
   const input = useRef(null);
+
+  useEffect(() => {
+    if (input && input.current && autoFocus) {
+      input.current.focus();
+    }
+  }, [autoFocus]);
+
   useEffect(() => {
     if (input && input.current) {
       input.current.value = defaultValue ? defaultValue : "";
@@ -26,6 +34,7 @@ const Input = ({
         name={fieldName}
         onChange={onChangeHandler}
         placeholder={placeholder}
+        autoFocus={autoFocus}
       />
     </div>
   );

@@ -74,6 +74,7 @@ const AddTodo = () => {
             placeholder={"Todo title goes here"}
             onChangeHandler={handleFormChange}
             resetCounter={resetCounter}
+            autoFocus={true}
           />
           <Input
             label={"Description"}
