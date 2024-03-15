@@ -1,9 +1,9 @@
 import { useId, useState } from "react";
-import Input from "../form-ui/Input";
-import Select from "../form-ui/Select";
-import useTodoStore from "../../store/todoStore";
+import Input from "../../form-ui/Input";
+import Select from "../../form-ui/Select";
+import useTodoStore from "../../../store/todoStore";
 import { uid } from "uid";
-import Modal from "../modal/Modal";
+import Modal from "../../modal/Modal";
 
 const emptyTodo = {
   title: "",
