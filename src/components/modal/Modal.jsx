@@ -2,15 +2,13 @@ import { createPortal } from "react-dom";
 import styles from "./Modal.module.scss";
 import { useEffect, useRef } from "react";
 
-const Modal = ({ open, handleClose, transferFocus, children, ...props }) => {
+const Modal = ({ open, handleClose, children, ...props }) => {
   const modalRef = useRef(null);
   useEffect(() => {
     if (open) {
       modalRef.current.focus();
-    } else {
-      if (transferFocus) transferFocus();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
 
   if (!open) return null;

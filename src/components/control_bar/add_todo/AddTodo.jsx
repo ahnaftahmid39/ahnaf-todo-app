@@ -23,6 +23,7 @@ const AddTodo = () => {
 
   const closeModal = () => {
     setIsOpen(false);
+    transferFocus();
   };
 
   const openModal = () => {
@@ -65,11 +66,7 @@ const AddTodo = () => {
       <button ref={btnRef} onClick={openModal}>
         new
       </button>
-      <Modal
-        handleClose={closeModal}
-        open={isOpen}
-        transferFocus={transferFocus}
-      >
+      <Modal handleClose={closeModal} open={isOpen}>
         <form>
           <Input
             label={"Title"}

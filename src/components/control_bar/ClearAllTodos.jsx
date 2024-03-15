@@ -15,6 +15,7 @@ const ClearAllTodos = () => {
 
   const closeModal = () => {
     setIsOpen(false);
+    transferFocus();
   };
 
   const showModal = () => {
@@ -30,11 +31,7 @@ const ClearAllTodos = () => {
       <button ref={btnRef} onClick={showModal}>
         All clear
       </button>
-      <Modal
-        open={isOpen}
-        handleClose={closeModal}
-        transferFocus={transferFocus}
-      >
+      <Modal open={isOpen} handleClose={closeModal}>
         <Warning
           warningMessage="Are you sure you want to clear all todos?"
           firstBtnLabel="Yes"
