@@ -1,4 +1,4 @@
-import { useId, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Input from "../../form-ui/Input";
 import Select from "../../form-ui/Select";
 import useTodoStore from "../../../store/todoStore";
@@ -62,7 +62,9 @@ const AddTodo = () => {
 
   return (
     <>
-      <button onClick={openModal}>new</button>
+      <button ref={btnRef} onClick={openModal}>
+        new
+      </button>
       <Modal
         handleClose={closeModal}
         open={isOpen}
