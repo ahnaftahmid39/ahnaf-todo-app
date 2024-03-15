@@ -28,3 +28,10 @@
 .control-bar button {
   width: 100%;
 }
+
+.control-bar {
+  @include themify($themes) {
+    background-color: themed("bg-color");
+    color: themed("fo-color");
+  }
+}

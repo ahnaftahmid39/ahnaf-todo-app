@@ -4,6 +4,7 @@ import ControlBar from "./components/control_bar/ControlBar";
 import TodosView from "./components/todos_view/TodosView";
 import { getTodos } from "./utils/persistStore";
 import useTodoStore from "./store/todoStore";
+import { useThemeStore } from "./store/themeStore";
 
 function App() {
   useEffect(() => {
@@ -13,9 +14,11 @@ function App() {
     }
   }, []);
 
+  const theme = useThemeStore((state) => state.theme);
+
   return (
     <>
-      <div className="wrapper">
+      <div className={`wrapper theme-${theme}`}>
         <ControlBar />
         <TodosView />
       </div>
