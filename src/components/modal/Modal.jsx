@@ -12,11 +12,22 @@ const Modal = ({ open, handleClose, children, ...props }) => {
   }, [open]);
 
   if (!open) return null;
+  const handleEscapekey = (e) => {
+    if (e.key === "Escape") {
+      handleClose();
+    }
+  };
   return createPortal(
     <>
       <div className={styles["overlay"]} onClick={handleClose}></div>
 
-      <div ref={modalRef} tabIndex={0} className={styles["modal"]} {...props}>
+      <div
+        onKeyDown={handleEscapekey}
+        ref={modalRef}
+        tabIndex={0}
+        className={styles["modal"]}
+        {...props}
+      >
         {children}
         <button onClick={handleClose}>Close</button>
       </div>
