@@ -5,6 +5,12 @@ const useTodoStore = create((set, get) => ({
   todos: [],
   filters: [],
   sorters: [],
+  searchText: "",
+
+  setSearchText: (search) => {
+    set(() => ({ searchText: search }));
+  },
+
   addFilter: (fieldName = "status", fieldValue = "pending", include = true) => {
     set((state) => ({
       filters: [...state.filters, { fieldName, fieldValue, include }],

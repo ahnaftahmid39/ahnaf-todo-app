@@ -1,14 +1,15 @@
 import { getDateTime } from "../../utils/date";
 import styles from "./TodosView.module.scss";
-import { CiCircleMore } from "react-icons/ci";
 import useTodoStore from "../../store/todoStore";
 import { todoCompare } from "../../utils/comparators";
 import TodoActions from "./todo_actions/TodoActions";
+import { fields } from "../../utils/constants";
 
 const TodosView = () => {
   const todos = useTodoStore((state) => state.todos);
   const filters = useTodoStore((state) => state.filters);
   const sorters = useTodoStore((state) => state.sorters);
+  const searchText = useTodoStore((state) => state.searchText);
 
   let finalTodos = [...todos];
 
@@ -41,6 +42,20 @@ const TodosView = () => {
       );
     });
   }
+
+  // handle search
+  let search = searchText.trim();
+  if (search !== "")
+    finalTodos = finalTodos.filter((todo) => {
+      const combinedString =
+        todo[fields.title] + todo[fields.description] + todo[fields.status];
+      if (combinedString.includes(search)) {
+        return true;
+      }
+
+      return false;
+    });
+
   return (
     <div className={styles["todos-view"]}>
       {finalTodos.map((todo, idx) => {
