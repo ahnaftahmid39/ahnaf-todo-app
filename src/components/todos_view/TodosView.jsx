@@ -1,33 +1,41 @@
-import { useState } from "react";
 import { getDateTime } from "../../utils/date";
 import styles from "./TodosView.module.scss";
 import { CiMenuKebab } from "react-icons/ci";
 import useTodoStore from "../../store/todoStore";
+import { todoCompare } from "../../utils/comparators";
 
 const TodosView = () => {
   const todos = useTodoStore((state) => state.todos);
-
-  const [sortBy, setSortBy] = useState("");
-  const [sortOrder, setSortOrder] = useState("asc");
-  const [filterField, setFilterField] = useState("");
-  const [filterValue, setFilterValue] = useState("");
+  const filters = useTodoStore((state) => state.filters);
+  const sorters = useTodoStore((state) => state.sorters);
 
   let finalTodos = [...todos];
-  if (filterField !== "" && filterValue !== "") {
+  filters.forEach((fltr) => {
     finalTodos = finalTodos.filter((todo) => {
-      return todo[filterField] === filterValue;
+      return (
+        fltr["include"] === (fltr["fieldValue"] === todo[fltr["fieldName"]])
+      );
     });
-  }
+  });
 
-  if (sortBy !== "") {
-    finalTodos.sort((a, b) => {
-      if (sortOrder === "asc") {
-        return a[sortBy] > b[sortBy] ? 1 : -1;
-      } else {
-        return a[sortBy] < b[sortBy] ? 1 : -1;
-      }
+  if (sorters.length > 0)
+    finalTodos.sort((todoA, todoB) => {
+      let sorterIndex = 0;
+      while (
+        sorterIndex < sorters.length - 1 &&
+        todoCompare(todoA, todoB, sorters[sorterIndex]) === 0
+      )
+        sorterIndex++;
+
+      const orderMap = {
+        asc: 1,
+        desc: -1,
+      };
+      return (
+        orderMap[sorters[sorterIndex]["order"]] *
+        (todoCompare(todoA, todoB, sorters[sorterIndex]) === 0)
+      );
     });
-  }
 
   return (
     <div className={styles["todos-view"]}>

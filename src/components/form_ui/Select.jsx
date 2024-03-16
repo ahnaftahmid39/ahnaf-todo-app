@@ -5,7 +5,7 @@ const Select = ({
   fieldName,
   defaultValue,
   options,
-  onChange,
+  onChangeHandler,
   resetCounter,
 }) => {
   const select = useRef(null);
@@ -22,7 +22,7 @@ const Select = ({
         id={fieldName}
         name={fieldName}
         defaultValue={defaultValue}
-        onChange={onChange}
+        onChange={onChangeHandler}
       >
         {options.map((x, i) => (
           <option key={i} value={x}>

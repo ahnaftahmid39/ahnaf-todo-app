@@ -1,6 +1,9 @@
+import useTodoStore from "../../store/todoStore";
+
 const ClearAllFilter = () => {
+  const clearFilters = useTodoStore((state) => state.clearFilters);
   const handleClearAllFilters = () => {
-    console.log("Cleared all filters");
+    clearFilters();
   };
   return (
     <>

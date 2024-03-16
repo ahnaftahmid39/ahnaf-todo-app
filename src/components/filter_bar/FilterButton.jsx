@@ -1,6 +1,9 @@
+import useTodoStore from "../../store/todoStore";
+
 const FilterButton = ({ label, filteringField, filterValue }) => {
+  const setOneFilter = useTodoStore((state) => state.setOneFilter);
   const handleFilter = () => {
-    console.log(`Filtering ${filteringField} = ${filterValue}`);
+    setOneFilter(filteringField, filterValue);
   };
 
   return (
