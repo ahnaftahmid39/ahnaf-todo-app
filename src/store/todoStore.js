@@ -18,7 +18,7 @@ const useTodoStore = create((set, get) => ({
   },
   removeFilter: (idx) => {
     set((state) => {
-      return state.filters.filter((_, i) => idx !== i);
+      return { filters: state.filters.filter((_, i) => idx !== i) };
     });
   },
 

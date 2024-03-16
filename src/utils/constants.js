@@ -8,8 +8,18 @@ const fields = Object.freeze({
   updatedAt: "updatedAt",
 });
 
+const filterableFields = Object.freeze({
+  priority: "priority",
+  status: "status",
+});
+
 const statusOptions = ["pending", "in-progress", "completed", "failed"];
 const priorityOptions = ["1", "2", "3", "4", "5"];
+
+const possibleValues = {
+  [fields.priority]: priorityOptions,
+  [fields.status]: statusOptions,
+};
 
 const statusOptionsEnum = Object.freeze({
   PENDING: "pending",
@@ -32,9 +42,11 @@ const SORTING_ORDERS = {
 
 export {
   fields,
+  filterableFields,
+  possibleValues,
   statusOptions,
   statusOptionsEnum,
   priorityOptions,
   statusNumericMapper,
-  SORTING_ORDERS
+  SORTING_ORDERS,
 };

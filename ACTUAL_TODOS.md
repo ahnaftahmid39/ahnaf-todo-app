@@ -47,3 +47,4 @@ Tasks have general to specific decomposition
 - [ ] Draggability of tasks
 - [ ] Dragability of control bar
 - [x] zustand persist state
+- [ ] make separate component for button with modal type ui
