@@ -1,6 +1,6 @@
 import { getDateTime } from "../../utils/date";
 import styles from "./TodosView.module.scss";
-import { CiMenuKebab } from "react-icons/ci";
+import { CiCircleMore } from "react-icons/ci";
 import useTodoStore from "../../store/todoStore";
 import { todoCompare } from "../../utils/comparators";
 
@@ -10,6 +10,8 @@ const TodosView = () => {
   const sorters = useTodoStore((state) => state.sorters);
 
   let finalTodos = [...todos];
+
+  // handle multiple filters
   filters.forEach((fltr) => {
     finalTodos = finalTodos.filter((todo) => {
       return (
@@ -18,7 +20,8 @@ const TodosView = () => {
     });
   });
 
-  if (sorters.length > 0)
+  // able to handle multi-level comparator
+  if (sorters.length > 0) {
     finalTodos.sort((todoA, todoB) => {
       let sorterIndex = 0;
       while (
@@ -33,10 +36,10 @@ const TodosView = () => {
       };
       return (
         orderMap[sorters[sorterIndex]["order"]] *
-        (todoCompare(todoA, todoB, sorters[sorterIndex]) === 0)
+        todoCompare(todoA, todoB, sorters[sorterIndex])
       );
     });
-
+  }
   return (
     <div className={styles["todos-view"]}>
       {finalTodos.map((todo, idx) => {
@@ -51,7 +54,7 @@ const TodosView = () => {
             <div className={styles["priority"]}>{todo.priority}</div>
             <div className={styles["creation-time"]}>{timeDiff}</div>
             <div className={styles["actions"]}>
-              <CiMenuKebab />
+              <CiCircleMore size={24} />
             </div>
           </div>
         );

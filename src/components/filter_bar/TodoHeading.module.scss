@@ -1,0 +1,14 @@
+.todo-heading-wrapper {
+  display: flex;
+  flex-direction: column;
+  svg {
+    min-width: 24px;
+  }
+  .buttons-wrapper {
+    display: flex;
+    flex-direction: row;
+    button {
+      padding: 0;
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import FilterActionsBar from "./FilterActionsBar";
 import HeadingsBar from "./HeadingsBar";
 
-const FilterBar = () => {
+const FiltersAndHeadingsBar = () => {
   return (
     <div>
       <FilterActionsBar />
@@ -10,4 +10,4 @@ const FilterBar = () => {
   );
 };
 
-export default FilterBar;
+export default FiltersAndHeadingsBar;
