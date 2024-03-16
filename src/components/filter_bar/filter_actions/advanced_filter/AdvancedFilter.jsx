@@ -3,6 +3,8 @@ import { useState } from "react";
 import Modal from "../../../modal/Modal";
 import AddFilterForm from "./AddFilterForm";
 import ViewFilters from "./ViewFilters";
+import AddSorterForm from "./AddSorterForm";
+import ViewSorters from "./ViewSorters";
 
 const AdvancedFilter = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,8 +27,10 @@ const AdvancedFilter = () => {
             <AddFilterForm />
             <ViewFilters />
           </div>
-          <div className={styles["sorter-wrapper"]}></div>
-          <div className={styles["date-query-wrapper"]}></div>
+          <div className={styles["sorter-wrapper"]}>
+            <AddSorterForm />
+            <ViewSorters />
+          </div>
         </div>
       </Modal>
     </>

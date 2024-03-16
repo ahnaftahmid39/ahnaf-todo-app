@@ -11,6 +11,7 @@ const useTodoStore = create((set, get) => ({
     set(() => ({ searchText: search }));
   },
 
+  // TODO: make this function arg object
   addFilter: (fieldName = "status", fieldValue = "pending", include = true) => {
     set((state) => ({
       filters: [...state.filters, { fieldName, fieldValue, include }],
@@ -21,7 +22,7 @@ const useTodoStore = create((set, get) => ({
       return { filters: state.filters.filter((_, i) => idx !== i) };
     });
   },
-
+  // TODO: make this function arg object
   setOneFilter: (
     fieldName = "status",
     fieldValue = "pending",
@@ -42,17 +43,18 @@ const useTodoStore = create((set, get) => ({
       sorters: [],
     }));
   },
-
+  // TODO: make this function arg object
   addSorter: (fieldName = "priority", order = "asc") => {
     set((state) => ({
       sorters: [...state.sorters, { fieldName, order }],
     }));
   },
   removeSorter: (idx) => {
-    set((state) => {
-      return state.sorters.filter((_, i) => idx !== i);
-    });
+    set((state) => ({
+      sorters: state.sorters.filter((_, i) => idx !== i),
+    }));
   },
+  // TODO: make this function arg object
   setOneSorter: (fieldName = "priority", order = "asc") => {
     set(() => ({
       sorters: [{ fieldName, order }],
