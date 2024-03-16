@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { getDateTime } from "../../utils/date";
 import styles from "./TodosView.module.scss";
-import { GoArrowUp, GoArrowDown } from "react-icons/go";
+import { CiMenuKebab } from "react-icons/ci";
 import useTodoStore from "../../store/todoStore";
 
 const TodosView = () => {
@@ -31,40 +31,23 @@ const TodosView = () => {
 
   return (
     <div className={styles["todos-view"]}>
-      <table>
-        <thead>
-          <tr>
-            <th>
-              <div className={styles["todos-view-header"]}>
-                <GoArrowUp />
-                Title
-                <GoArrowDown />
-              </div>
-            </th>
-            <th>Description</th>
-            <th>Priority</th>
-            <th>Status</th>
-            <th>Created</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {finalTodos.map((todo) => {
-            const createdAt = new Date(todo.createdAt);
-            const timeDiff = getDateTime(createdAt);
-
-            return (
-              <tr key={todo.id}>
-                <td>{todo.title}</td>
-                <td>{todo.description}</td>
-                <td>{todo.priority}</td>
-                <td>{todo.status}</td>
-                <td>{timeDiff}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      {finalTodos.map((todo, idx) => {
+        const createdAt = new Date(todo.createdAt);
+        const timeDiff = getDateTime(createdAt);
+        return (
+          <div className={styles["todo-row"]} key={todo.id}>
+            <div className={styles["serial-no"]}>{idx + 1}</div>
+            <div className={styles["title"]}>{todo.title}</div>
+            <div className={styles["description"]}>{todo.description}</div>
+            <div className={styles["status"]}>{todo.status}</div>
+            <div className={styles["priority"]}>{todo.priority}</div>
+            <div className={styles["creation-time"]}>{timeDiff}</div>
+            <div className={styles["actions"]}>
+              <CiMenuKebab />
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 };

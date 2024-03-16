@@ -1,5 +1,5 @@
 import styles from "./SearchBar.module.scss";
-
+import { CiSearch } from "react-icons/ci";
 const SearchBar = ({
   text,
   setText,
@@ -33,7 +33,7 @@ const SearchBar = ({
         onClick={handleSearch}
         className={styles["searchbar-btn"]}
       >
-        ICON
+        <CiSearch />
       </button>
     </div>
   );

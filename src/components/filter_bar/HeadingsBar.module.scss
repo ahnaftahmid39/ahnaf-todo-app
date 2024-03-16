@@ -1,5 +1,37 @@
+@import "../../sass/globals";
+
 .headings-wrapper {
   display: flex;
   flex-direction: row;
   gap: 1rem;
+  padding: 1.5rem;
+
+  & > * {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .serial-no {
+    flex: $serial-no-flex;
+  }
+  .title {
+    flex: $title-flex;
+  }
+  .description {
+    flex: $description-flex;
+  }
+  .status {
+    flex: $status-flex;
+  }
+  .priority {
+    flex: $priority-flex;
+  }
+  .creation-time {
+    flex: $creation-time-flex;
+  }
+  .actions {
+    flex: $actions-flex;
+  }
 }

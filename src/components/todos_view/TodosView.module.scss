@@ -1,3 +1,5 @@
+@import "../../sass/globals";
+
 .todos-view {
   display: flex;
   // align-items: center;
@@ -8,6 +10,39 @@
   border-radius: 1rem;
   padding: 1.5rem;
   width: 100%;
+
+  .todo-row {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+    & > * {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .serial-no {
+      flex: $serial-no-flex;
+    }
+    .title {
+      flex: $title-flex;
+    }
+    .description {
+      flex: $description-flex;
+    }
+    .status {
+      flex: $status-flex;
+    }
+    .priority {
+      flex: $priority-flex;
+    }
+    .creation-time {
+      flex: $creation-time-flex;
+    }
+    .actions {
+      flex: $actions-flex;
+    }
+  }
 }
 
 .todos-view-header {

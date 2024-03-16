@@ -1,15 +1,15 @@
-import styles from './HeadingsBar.module.scss'
+import styles from "./HeadingsBar.module.scss";
 
 const HeadingsBar = () => {
   return (
-    <div className={styles['headings-wrapper']}>
-      <div>SN</div>
-      <div>title</div>
-      <div>Description</div>
-      <div>Status</div>
-      <div>Priority</div>
-      <div>Creation Time</div>
-      <div>Actions</div>
+    <div className={styles["headings-wrapper"]}>
+      <div className={styles["serial-no"]}>SN</div>
+      <div className={styles["title"]}>title</div>
+      <div className={styles["description"]}>Description</div>
+      <div className={styles["status"]}>Status</div>
+      <div className={styles["priority"]}>Priority</div>
+      <div className={styles["creation-time"]}>Creation Time</div>
+      <div className={styles["actions"]}>Actions</div>
     </div>
   );
 };

@@ -1,0 +1,71 @@
+@import "../../sass/globals";
+
+.searchbar-container {
+  display: flex;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  @include themify($themes) {
+    background-color: themed("bg-color");
+    color: themed("fo-color");
+    border: 2px solid themed("bg-color2");
+  }
+}
+.searchbar-input,
+.searchbar-btn {
+  border: none;
+}
+
+.searchbar-input::placeholder {
+  @include themify($themes) {
+    color: themed("fo-color");
+  }
+}
+.searchbar-input {
+  width: 92%;
+  @include themify($themes) {
+    background-color: themed("bg-color");
+    color: themed("fo-color");
+  }
+  outline: transparent;
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+  font-family: inherit;
+}
+
+.searchbar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include themify($themes) {
+    background-color: themed("bg-color");
+    color: themed("fo-color");
+  }
+  padding: 1rem;
+  cursor: pointer;
+  transition: transform 100ms;
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (min-width: 400px) {
+  .searchbar-btn {
+    flex: 1;
+  }
+}
+
+.searchbar-btn svg * {
+  @include themify($themes) {
+    stroke: themed($fo-color);
+  }
+}
+
+.searchbar-btn:focus {
+  outline: none;
+}
+
+.searchbar-btn:active {
+  transform: translateY(4px);
+}
