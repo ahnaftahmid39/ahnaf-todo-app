@@ -67,12 +67,14 @@ const useTodoStore = create((set, get) => ({
     }));
     PersistTodo.setTodos(get().todos);
   },
-  updateTodo: (id, updatedTodo) =>
+  updateTodo: (id, updatedTodo) => {
     set((state) => ({
       todos: state.todos.map((todo) =>
         todo.id === id ? { ...todo, ...updatedTodo } : todo
       ),
-    })),
+    }));
+    PersistTodo.setTodos(get().todos);
+  },
 }));
 
 export default useTodoStore;
