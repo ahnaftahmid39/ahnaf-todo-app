@@ -1,4 +1,4 @@
-import useTodoStore from "../../store/todoStore";
+import useTodoStore from "../../../store/todoStore";
 
 const ClearAllFilter = () => {
   const clearFilters = useTodoStore((state) => state.clearFilters);

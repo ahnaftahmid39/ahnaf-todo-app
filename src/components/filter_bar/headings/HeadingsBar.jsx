@@ -1,7 +1,6 @@
-import { CiCircleChevDown, CiCircleChevUp } from "react-icons/ci";
 import styles from "./HeadingsBar.module.scss";
-import TodoHeading from "./TodoHeading";
-import { fields } from "../../utils/constants";
+import TodoHeading from "./todo_heading/TodoHeading";
+import { fields } from "../../../utils/constants";
 
 const HeadingsBar = () => {
   return (

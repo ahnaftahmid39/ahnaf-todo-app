@@ -1,5 +1,5 @@
-import FilterActionsBar from "./FilterActionsBar";
-import HeadingsBar from "./HeadingsBar";
+import FilterActionsBar from "./filter_actions/FilterActionsBar";
+import HeadingsBar from "./headings/HeadingsBar";
 
 const FiltersAndHeadingsBar = () => {
   return (

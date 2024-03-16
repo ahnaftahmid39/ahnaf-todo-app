@@ -1,6 +1,6 @@
 import { CiCircleChevDown, CiCircleChevUp } from "react-icons/ci";
 import styles from "./TodoHeading.module.scss";
-import useTodoStore from "../../store/todoStore";
+import useTodoStore from "../../../../store/todoStore";
 
 const SORTING_ORDERS = {
   ASC: "asc",

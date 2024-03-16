@@ -1,9 +1,8 @@
-import AdvancedFilter from "./AdvancedFilter";
+import { fields, statusOptionsEnum } from "../../../utils/constants";
+import SearchBar from "../search_bar/SearchBar";
 import ClearAllFilter from "./ClearAllFilter";
 import FilterButton from "./FilterButton";
-import SearchBar from "./SearchBar";
-import { statusOptionsEnum } from "../../utils/constants";
-import { fields } from "../../utils/constants";
+import AdvancedFilter from "./advanced_filter/AdvancedFilter";
 
 const FilterActionsBar = () => {
   return (
