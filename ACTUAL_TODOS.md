@@ -23,27 +23,27 @@ Tasks have general to specific decomposition
 
 - [ ] Filter bar (Where all the filtering control)
   - [ ] Search bar
-  - [ ] Pending filter
-  - [ ] in-progress filter
+  - [x] Pending filter
+  - [x] in-progress filter
   - [ ] Advanced filter
-    - [ ] handling multiple filters
+    - [x] handling multiple filters
     - [ ] date between
     - [ ] handling multiple sorts
-  - [ ] clear all filters
-  - [ ] Sorting by fields
-    - [ ] descending and ascending
+  - [x] clear all filters
+  - [x] Sorting by fields
+    - [x] descending and ascending
 
 - [ ] Todos view
-  - [ ] figure out best flex for each fields
+  - [x] figure out best flex for each fields
   - [ ] different color or some contrast for completed todo
   - [ ] actions button
-    - [ ] actions modal
-    - [ ] edit functionality
-    - [ ] delete selected
-    - [ ] mark as done
+    - [ ] actions pop up
+    - [x] edit functionality
+    - [x] delete selected
+    - [x] mark as done
 
 ## Optional
 
 - [ ] Draggability of tasks
 - [ ] Dragability of control bar
-- [ ] zustand persist state
+- [x] zustand persist state
