@@ -1,11 +1,8 @@
 import { CiCircleChevDown, CiCircleChevUp } from "react-icons/ci";
 import styles from "./TodoHeading.module.scss";
 import useTodoStore from "../../../../store/todoStore";
+import { SORTING_ORDERS } from "../../../../utils/constants";
 
-const SORTING_ORDERS = {
-  ASC: "asc",
-  DESC: "desc",
-};
 
 const TodoHeading = ({ fieldName, label = "", className = "" }) => {
   const setOneSorter = useTodoStore((state) => state.setOneSorter);

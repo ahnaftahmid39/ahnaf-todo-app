@@ -3,6 +3,7 @@ import styles from "./TodosView.module.scss";
 import { CiCircleMore } from "react-icons/ci";
 import useTodoStore from "../../store/todoStore";
 import { todoCompare } from "../../utils/comparators";
+import TodoActions from "./todo_actions/TodoActions";
 
 const TodosView = () => {
   const todos = useTodoStore((state) => state.todos);
@@ -54,7 +55,7 @@ const TodosView = () => {
             <div className={styles["priority"]}>{todo.priority}</div>
             <div className={styles["creation-time"]}>{timeDiff}</div>
             <div className={styles["actions"]}>
-              <CiCircleMore size={24} />
+              <TodoActions todo={todo} />
             </div>
           </div>
         );

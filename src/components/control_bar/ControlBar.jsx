@@ -1,5 +1,5 @@
 import styles from "./ControlBar.module.scss";
-import AddTodo from "./add_todo/AddTodo";
+import UpsertTodo from "./add_todo/UpsertTodo";
 import ClearAllTodos from "./ClearAllTodos";
 import ToggleTheme from "./ToggleTheme";
 import ViewKeybinds from "./view_keybinds/ViewKeybinds";
@@ -7,7 +7,7 @@ import ViewKeybinds from "./view_keybinds/ViewKeybinds";
 const ControlBar = () => {
   return (
     <div className={styles["control-bar"]}>
-      <AddTodo />
+      <UpsertTodo />
       <ClearAllTodos />
       <ToggleTheme />
       <ViewKeybinds />

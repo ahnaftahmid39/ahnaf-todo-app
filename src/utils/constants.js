@@ -25,6 +25,10 @@ const statusNumericMapper = {
   [statusOptionsEnum.FAILED]: 4,
 };
 
+const SORTING_ORDERS = {
+  ASC: "asc",
+  DESC: "desc",
+};
 
 export {
   fields,
@@ -32,4 +36,5 @@ export {
   statusOptionsEnum,
   priorityOptions,
   statusNumericMapper,
+  SORTING_ORDERS
 };

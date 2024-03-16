@@ -4,18 +4,20 @@ import Select from "../../form_ui/Select";
 import useTodoStore from "../../../store/todoStore";
 import { uid } from "uid";
 import Modal from "../../modal/Modal";
+import { priorityOptions, statusOptions } from "../../../utils/constants";
 
 const emptyTodo = {
   title: "",
   description: "",
-  priority: "2",
+  priority: "3",
   status: "pending",
 };
 
-const AddTodo = () => {
+const UpsertTodo = ({ label = "New", defaultTodo = emptyTodo }) => {
   const addTodo = useTodoStore((state) => state.addTodo);
+  const updateTodo = useTodoStore((state) => state.updateTodo);
 
-  const [todo, setTodo] = useState(emptyTodo);
+  const [todo, setTodo] = useState(defaultTodo);
   const [resetCounter, setResetCounter] = useState(0);
   const btnRef = useRef(null);
 
@@ -32,7 +34,7 @@ const AddTodo = () => {
 
   const resetForm = () => {
     setTodo({
-      ...emptyTodo,
+      ...defaultTodo,
     });
     setResetCounter(resetCounter + 1);
   };
@@ -45,13 +47,17 @@ const AddTodo = () => {
   };
 
   const handleFormSubmit = () => {
-    const currentDateTime = new Date().toISOString();
-    addTodo({
-      ...todo,
-      id: uid(),
-      createdAt: currentDateTime,
-      updatedAt: currentDateTime,
-    });
+    if (todo.id !== undefined) {
+      updateTodo(todo.id, { ...todo, updatedAt: new Date().toISOString() });
+    } else {
+      const currentDateTime = new Date().toISOString();
+      addTodo({
+        ...todo,
+        id: uid(),
+        createdAt: currentDateTime,
+        updatedAt: currentDateTime,
+      });
+    }
     closeModal();
     resetForm();
   };
@@ -63,7 +69,7 @@ const AddTodo = () => {
   return (
     <>
       <button ref={btnRef} onClick={openModal}>
-        new
+        {label}
       </button>
       <Modal handleClose={closeModal} open={isOpen}>
         <form>
@@ -73,6 +79,7 @@ const AddTodo = () => {
             placeholder={"Todo title goes here"}
             onChangeHandler={handleFormChange}
             resetCounter={resetCounter}
+            defaultValue={defaultTodo.title}
             autoFocus={true}
           />
           <Input
@@ -80,29 +87,30 @@ const AddTodo = () => {
             fieldName={"description"}
             placeholder={"Todo description goes here"}
             onChangeHandler={handleFormChange}
+            defaultValue={defaultTodo.description}
             resetCounter={resetCounter}
           />
 
           <Select
-            defaultValue={"2"}
+            defaultValue={defaultTodo.priority}
             label={"Priority"}
             fieldName={"priority"}
-            options={["1", "2", "3", "4", "5"]}
+            options={priorityOptions}
             onChangeHandler={handleFormChange}
             resetCounter={resetCounter}
           />
 
           <Select
-            defaultValue={"pending"}
+            defaultValue={defaultTodo.status}
             label={"Status"}
             fieldName={"status"}
-            options={["pending", "in-progress", "completed", "failed"]}
+            options={statusOptions}
             onChangeHandler={handleFormChange}
             resetCounter={resetCounter}
           />
 
           <button type="button" onClick={handleFormSubmit}>
-            Add
+            {defaultTodo.id === undefined ? "Add" : "Update"}
           </button>
           <button type="button" onClick={resetForm}>
             Clear
@@ -113,4 +121,4 @@ const AddTodo = () => {
   );
 };
 
-export default AddTodo;
+export default UpsertTodo;
