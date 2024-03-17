@@ -17,14 +17,19 @@ function App() {
 
   const theme = useThemeStore((state) => state.theme);
 
+  useEffect(() => {
+    if (window && window.document) {
+      document.getElementById("root").classList = `theme-${theme}`;
+      document.getElementById("portal").classList = `theme-${theme}`;
+    }
+  }, [theme]);
+
   return (
     <>
-      <div className={`theme-${theme}`}>
-        <div className={styles["wrapper"]}>
-          <ControlBar />
-          <FilterBar />
-          <TodosView />
-        </div>
+      <div className={styles["wrapper"]}>
+        <ControlBar />
+        <FilterBar />
+        <TodosView />
       </div>
     </>
   );
