@@ -28,7 +28,7 @@ const AdvancedFilter = () => {
 
   return (
     <>
-      <button onClick={openModal}>AdvancedFilter</button>
+      <button onClick={openModal}>Advanced Filter</button>
       <Modal open={isOpen} handleClose={closeModal}>
         <div className={styles["wrapper"]}>
           <div className={styles["filter-wrapper"]}>

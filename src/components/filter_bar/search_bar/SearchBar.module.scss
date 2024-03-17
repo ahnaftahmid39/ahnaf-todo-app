@@ -3,17 +3,20 @@
 .searchbar-container {
   display: flex;
   width: 100%;
-  border-radius: 8px;
+  border-radius: $border-radius;
   overflow: hidden;
-  @include themify($themes) {
-    background-color: themed("bg-color");
-    color: themed("fo-color");
-    border: 2px solid themed("bg-color2");
+}
+
+@media screen and (min-width: 1080px) {
+  .searchbar-container {
+    width: 40%;
   }
 }
+
 .searchbar-input,
 .searchbar-btn {
   border: none;
+  outline: none;
 }
 
 .searchbar-input::placeholder {
@@ -24,29 +27,34 @@
 .searchbar-input {
   width: 92%;
   @include themify($themes) {
-    background-color: themed("bg-color");
+    background-color: themed("bg-color3");
     color: themed("fo-color");
   }
   outline: transparent;
   padding: 1rem 1.5rem;
+  padding-left: 0;
+
   font-size: 1.2rem;
   font-family: inherit;
+
+  &::placeholder {
+    @include themify($themes) {
+      color: themed("fo-color-dim");
+    }
+  }
 }
 
 .searchbar-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  @include themify($themes) {
-    background-color: themed("bg-color");
-    color: themed("fo-color");
-  }
+
   padding: 1rem;
   cursor: pointer;
   transition: transform 100ms;
-  svg {
-    width: 24px;
-    height: 24px;
+  @include themify($themes) {
+    background-color: themed("bg-color3");
+    color: themed("fo-color-dim");
   }
 }
 

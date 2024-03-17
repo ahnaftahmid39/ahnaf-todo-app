@@ -22,6 +22,8 @@ $themes: (
     bg-color2: $bg-color2,
     bg-color3: $bg-color3,
     fo-color: $fo-color,
+    fo-color-light: hsla(0, 0%, 35%, 100%),
+    fo-color-dim: #767676,
     danger-color: $danger-color,
   ),
   dark: (

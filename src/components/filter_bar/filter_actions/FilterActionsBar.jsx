@@ -5,7 +5,7 @@ import ClearAllFilter from "./ClearAllFilter";
 import FilterButton from "./FilterButton";
 import AdvancedFilter from "./advanced_filter/AdvancedFilter";
 import useTodoStore from "../../../store/todoStore";
-
+import styles from "./FilterActionsBar.module.scss";
 const FilterActionsBar = () => {
   const setOneFilter = useTodoStore((state) => state.setOneFilter);
   useHotkeys("alt+p", () => {
@@ -15,20 +15,22 @@ const FilterActionsBar = () => {
     setOneFilter(fields.status, statusOptionsEnum.INPROGRESS);
   });
   return (
-    <div>
+    <div className={styles["filter-action-wrapper"]}>
       <SearchBar />
-      <FilterButton
-        filteringField={fields.status}
-        label={statusOptionsEnum.PENDING}
-        filterValue={statusOptionsEnum.PENDING}
-      />
-      <FilterButton
-        filteringField={fields.status}
-        label={statusOptionsEnum.INPROGRESS}
-        filterValue={statusOptionsEnum.INPROGRESS}
-      />
-      <AdvancedFilter />
-      <ClearAllFilter />
+      <div className={styles["action-buttons-wrapper"]}>
+        <FilterButton
+          filteringField={fields.status}
+          label={statusOptionsEnum.PENDING}
+          filterValue={statusOptionsEnum.PENDING}
+        />
+        <FilterButton
+          filteringField={fields.status}
+          label={statusOptionsEnum.INPROGRESS}
+          filterValue={statusOptionsEnum.INPROGRESS}
+        />
+        <AdvancedFilter />
+        <ClearAllFilter />
+      </div>
     </div>
   );
 };

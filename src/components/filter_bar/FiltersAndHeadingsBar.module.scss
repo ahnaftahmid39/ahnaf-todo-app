@@ -1,0 +1,13 @@
+@import "../../sass/globals";
+
+.filter-heading-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: $border-radius;
+  gap: 1rem;
+
+  @include themify($themes) {
+    background-color: themed("bg-color");
+  }
+}

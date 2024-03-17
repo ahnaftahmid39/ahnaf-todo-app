@@ -36,6 +36,13 @@ const SearchBar = ({ placeholder = "Search" }) => {
   };
   return (
     <div className={styles["searchbar-container"]}>
+      <button
+        type="button"
+        onClick={handleSearch}
+        className={styles["searchbar-btn"]}
+      >
+        <CiSearch size={28} />
+      </button>
       <input
         ref={inputRef}
         // comment out below to trigger search on enter or click
@@ -44,13 +51,6 @@ const SearchBar = ({ placeholder = "Search" }) => {
         placeholder={placeholder}
         className={styles["searchbar-input"]}
       ></input>
-      <button
-        type="button"
-        onClick={handleSearch}
-        className={styles["searchbar-btn"]}
-      >
-        <CiSearch />
-      </button>
     </div>
   );
 };
