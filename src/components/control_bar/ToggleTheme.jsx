@@ -1,16 +1,16 @@
 import { useHotkeys } from "react-hotkeys-hook";
 import { THEMES, useThemeStore } from "../../store/themeStore";
+import { CiDark, CiLight } from "react-icons/ci";
 
 const ToggleTheme = () => {
   const currentTheme = useThemeStore((state) => state.theme);
   const toggleTheme = useThemeStore((state) => state.toggleTheme);
 
-  // TODO: use icon instead of text
-  let buttonLabel = "";
+  let buttonIcon = "";
   if (currentTheme === THEMES.dark) {
-    buttonLabel = "Switch to light";
+    buttonIcon = <CiLight size={32} />;
   } else if (currentTheme === THEMES.light) {
-    buttonLabel = "Switch to dark";
+    buttonIcon = <CiDark size={32} />;
   }
 
   useHotkeys("shift+t", () => {
@@ -19,7 +19,7 @@ const ToggleTheme = () => {
 
   return (
     <>
-      <button onClick={toggleTheme}> {buttonLabel}</button>
+      <button onClick={toggleTheme}> {buttonIcon}</button>
     </>
   );
 };

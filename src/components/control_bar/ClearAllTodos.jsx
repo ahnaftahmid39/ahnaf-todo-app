@@ -3,6 +3,7 @@ import useTodoStore from "../../store/todoStore";
 import Modal from "../modal/Modal";
 import Warning from "../warning/Warning";
 import { useHotkeys } from "react-hotkeys-hook";
+import { CiTrash } from "react-icons/ci";
 
 const ClearAllTodos = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,7 +35,7 @@ const ClearAllTodos = () => {
   return (
     <>
       <button ref={btnRef} onClick={showModal}>
-        All clear
+        <CiTrash size={32} />
       </button>
       <Modal open={isOpen} handleClose={closeModal}>
         <Warning

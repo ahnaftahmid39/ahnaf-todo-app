@@ -8,8 +8,9 @@
 }
 
 .control-bar {
+  display: flex;
   padding: 0.5rem;
-  gap: 1rem;
+  gap: 2rem;
   border-radius: $border-radius;
   width: max-content;
 }

@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import Modal from "../../modal/Modal";
 import { useHotkeys } from "react-hotkeys-hook";
+import { CiKeyboard } from "react-icons/ci";
 
 const ViewKeybinds = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +27,7 @@ const ViewKeybinds = () => {
   return (
     <>
       <button ref={btnRef} type="button" onClick={showModal}>
-        View Shortcuts
+        <CiKeyboard size={32} />
       </button>
       <Modal open={isOpen} handleClose={closeModal}>
         <div>
@@ -72,7 +73,6 @@ const ViewKeybinds = () => {
               <br></br>
               <span>Reset Filter</span>
             </li>
-
           </ul>
         </div>
       </Modal>

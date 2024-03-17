@@ -6,6 +6,7 @@ import { uid } from "uid";
 import Modal from "../../modal/Modal";
 import { priorityOptions, statusOptions } from "../../../utils/constants";
 import { useHotkeys } from "react-hotkeys-hook";
+import { CiCirclePlus, CiEdit } from "react-icons/ci";
 
 const emptyTodo = {
   title: "",
@@ -78,7 +79,7 @@ const UpsertTodo = ({ label = "New", defaultTodo = emptyTodo }) => {
   return (
     <>
       <button ref={btnRef} onClick={openModal}>
-        {label}
+        {label === "New" ? <CiCirclePlus size={32} /> : <CiEdit size={32} />}
       </button>
       <Modal handleClose={closeModal} open={isOpen}>
         <form>
