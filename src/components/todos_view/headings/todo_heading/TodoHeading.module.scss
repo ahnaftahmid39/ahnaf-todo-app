@@ -13,18 +13,10 @@
   height: 100%;
 
   &[data-not-sortable="true"] {
-    background-image: url("../../../../assets/pata.png"),
-      url("../../../../assets/pata.png");
-    background-position-x: 10%, 110%;
+    background-image: url("../../../../assets/pata.png");
+    background-position-x: 80%;
     background-position-y: 100%, 100%;
     background-repeat: no-repeat;
-
-    @media screen and (min-width: 2000px) {
-      background-image: url("../../../../assets/pata.png"),
-        url("../../../../assets/pata.png"), url("../../../../assets/pata.png");
-      background-position-x: 10%, 50%, 110%;
-      background-position-y: 100%;
-    }
   }
 
   @include themify($themes) {
