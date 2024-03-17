@@ -1,10 +1,9 @@
-import { CiCircleChevDown, CiCircleChevUp } from "react-icons/ci";
 import styles from "./TodoHeading.module.scss";
 import useTodoStore from "../../../../store/todoStore";
 import { SORTING_ORDERS } from "../../../../utils/constants";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
-
-const TodoHeading = ({ fieldName, label = "", className = "" }) => {
+const TodoHeading = ({ fieldName, label = "", className = "", sortable }) => {
   const setOneSorter = useTodoStore((state) => state.setOneSorter);
 
   const handleAscendingSort = () => {
@@ -15,19 +14,30 @@ const TodoHeading = ({ fieldName, label = "", className = "" }) => {
     setOneSorter(fieldName, SORTING_ORDERS.DESC);
   };
   return (
-    <>
-      <div className={`${styles["todo-heading-wrapper"]} ${className}`}>
+    <div className={`${className}`}>
+      <div className={styles["todo-heading-wrapper"]}>
         {label}
-        <div className={styles["buttons-wrapper"]}>
-          <button onClick={handleAscendingSort}>
-            <CiCircleChevUp size={24} />
+        <div
+          className={styles["buttons-wrapper"]}
+          data-not-sortable={!sortable}
+        >
+          <button
+            role="button"
+            className={styles["left"]}
+            onClick={handleAscendingSort}
+          >
+            <IoIosArrowUp />
           </button>
-          <button onClick={handleDescendingSort}>
-            <CiCircleChevDown size={24} />
+          <button
+            role="button"
+            className={styles["right"]}
+            onClick={handleDescendingSort}
+          >
+            <IoIosArrowDown />
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

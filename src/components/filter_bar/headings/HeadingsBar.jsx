@@ -15,6 +15,7 @@ const HeadingsBar = () => {
         className={styles["title"]}
         fieldName={fields.title}
         label="title"
+        sortable
       />
       <TodoHeading
         className={styles["description"]}
@@ -25,16 +26,19 @@ const HeadingsBar = () => {
         className={styles["status"]}
         fieldName={fields.status}
         label="Status"
+        sortable
       />
       <TodoHeading
         className={styles["priority"]}
         fieldName={fields.priority}
         label="Priority"
+        sortable
       />
       <TodoHeading
         className={styles["creation-time"]}
         fieldName={fields.createdAt}
         label="Creation Time"
+        sortable
       />
       <TodoHeading
         className={styles["actions"]}

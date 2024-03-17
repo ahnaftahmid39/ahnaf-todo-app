@@ -14,6 +14,18 @@ $priority-flex: 2;
 $creation-time-flex: 2.5;
 $actions-flex: 2;
 
+// get percentage flex basis from flex
+$total-flex: $serial-no-flex + $title-flex + $description-flex + $status-flex +
+  $priority-flex + $creation-time-flex + $actions-flex;
+
+$serial-no-flex-basis: $serial-no-flex / $total-flex * 100%;
+$title-flex-basis: $title-flex / $total-flex * 100%;
+$description-flex-basis: $description-flex / $total-flex * 100%;
+$status-flex-basis: $status-flex / $total-flex * 100%;
+$priority-flex-basis: $priority-flex / $total-flex * 100%;
+$creation-time-flex-basis: $creation-time-flex / $total-flex * 100%;
+$actions-flex-basis: $actions-flex / $total-flex * 100%;
+
 $border-radius: 1rem;
 
 $themes: (

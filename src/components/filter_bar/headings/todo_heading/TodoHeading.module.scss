@@ -1,14 +1,60 @@
+@import "../../../../sass/globals";
+
 .todo-heading-wrapper {
   display: flex;
   flex-direction: column;
-  svg {
-    min-width: 24px;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  gap: 0.5rem;
+  width: 100%;
+  border-radius: $border-radius;
+
+  @include themify($themes) {
+    background-color: themed("bg-color2");
   }
+
   .buttons-wrapper {
     display: flex;
-    flex-direction: row;
+    width: 100%;
+    gap: 4px;
+
     button {
-      padding: 0;
+      padding: 0.5rem;
+      width: 100%;
+
+      @include themify($themes) {
+        background-color: themed("bg-color");
+      }
+
+      svg {
+        margin: auto;
+      }
+    }
+
+    button.left {
+      border-radius: $border-radius 0 0 $border-radius;
+    }
+    button.right {
+      border-radius: 0 $border-radius $border-radius 0;
+    }
+  }
+
+  [data-not-sortable="true"] button {
+    visibility: hidden;
+    width: 0;
+
+    svg {
+      width: 0;
     }
   }
 }
+// [data-not-sortable="true"] {
+//   button {
+//     visibility: hidden;
+//     width: 0;
+//     svg {
+//       width: 0;
+//     }
+//   }
+// }
