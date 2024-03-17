@@ -3,28 +3,9 @@
 $bg-color: hsla(144, 42%, 89%, 100%);
 $bg-color2: hsla(112, 100%, 97%, 100%);
 $bg-color3: hsla(130, 54%, 94%, 100%);
+$bg-color4: hsla(140, 52%, 81%, 100%);
 $fo-color: hsla(0, 0%, 14%, 100%);
 $danger-color: hsl(0, 41%, 56%);
-
-$serial-no-flex: 1;
-$title-flex: 2.5;
-$description-flex: 5;
-$status-flex: 2.5;
-$priority-flex: 2;
-$creation-time-flex: 2.5;
-$actions-flex: 2;
-
-// get percentage flex basis from flex
-$total-flex: $serial-no-flex + $title-flex + $description-flex + $status-flex +
-  $priority-flex + $creation-time-flex + $actions-flex;
-
-$serial-no-flex-basis: $serial-no-flex / $total-flex * 100%;
-$title-flex-basis: $title-flex / $total-flex * 100%;
-$description-flex-basis: $description-flex / $total-flex * 100%;
-$status-flex-basis: $status-flex / $total-flex * 100%;
-$priority-flex-basis: $priority-flex / $total-flex * 100%;
-$creation-time-flex-basis: $creation-time-flex / $total-flex * 100%;
-$actions-flex-basis: $actions-flex / $total-flex * 100%;
 
 $border-radius: 1rem;
 
@@ -33,6 +14,7 @@ $themes: (
     bg-color: $bg-color,
     bg-color2: $bg-color2,
     bg-color3: $bg-color3,
+    bg-color4: $bg-color4,
     fo-color: $fo-color,
     fo-color-light: hsla(0, 0%, 35%, 100%),
     fo-color-dim: #767676,

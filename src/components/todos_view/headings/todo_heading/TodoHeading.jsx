@@ -14,28 +14,23 @@ const TodoHeading = ({ fieldName, label = "", className = "", sortable }) => {
     setOneSorter(fieldName, SORTING_ORDERS.DESC);
   };
   return (
-    <div className={`${className}`}>
-      <div className={styles["todo-heading-wrapper"]}>
-        {label}
-        <div
-          className={styles["buttons-wrapper"]}
-          data-not-sortable={!sortable}
+    <div className={styles["todo-heading-wrapper"]} data-not-sortable={!sortable}>
+      {label}
+      <div className={styles["buttons-wrapper"]} data-not-sortable={!sortable}>
+        <button
+          role="button"
+          className={styles["left"]}
+          onClick={handleAscendingSort}
         >
-          <button
-            role="button"
-            className={styles["left"]}
-            onClick={handleAscendingSort}
-          >
-            <IoIosArrowUp />
-          </button>
-          <button
-            role="button"
-            className={styles["right"]}
-            onClick={handleDescendingSort}
-          >
-            <IoIosArrowDown />
-          </button>
-        </div>
+          <IoIosArrowUp />
+        </button>
+        <button
+          role="button"
+          className={styles["right"]}
+          onClick={handleDescendingSort}
+        >
+          <IoIosArrowDown />
+        </button>
       </div>
     </div>
   );

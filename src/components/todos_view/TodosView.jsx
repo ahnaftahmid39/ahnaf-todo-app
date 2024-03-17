@@ -4,6 +4,7 @@ import useTodoStore from "../../store/todoStore";
 import { todoCompare } from "../../utils/comparators";
 import TodoActions from "./todo_actions/TodoActions";
 import { fields } from "../../utils/constants";
+import HeadingsBar from "./headings/HeadingsBar";
 
 const TodosView = () => {
   const todos = useTodoStore((state) => state.todos);
@@ -58,18 +59,19 @@ const TodosView = () => {
 
   return (
     <div className={styles["todos-view"]}>
+      <HeadingsBar className={styles["todo-row"]} />
       {finalTodos.map((todo, idx) => {
         const createdAt = new Date(todo.createdAt);
         const timeDiff = getDateTime(createdAt);
         return (
           <div className={styles["todo-row"]} key={todo.id}>
-            <div className={styles["serial-no"]}>{idx + 1}</div>
-            <div className={styles["title"]}>{todo.title}</div>
-            <div className={styles["description"]}>{todo.description}</div>
-            <div className={styles["status"]}>{todo.status}</div>
-            <div className={styles["priority"]}>{todo.priority}</div>
-            <div className={styles["creation-time"]}>{timeDiff}</div>
-            <div className={styles["actions"]}>
+            <div>{idx + 1}</div>
+            <div>{todo.title}</div>
+            <div>{todo.description}</div>
+            <div>{todo.status}</div>
+            <div>{todo.priority}</div>
+            <div>{timeDiff}</div>
+            <div>
               <TodoActions todo={todo} />
             </div>
           </div>

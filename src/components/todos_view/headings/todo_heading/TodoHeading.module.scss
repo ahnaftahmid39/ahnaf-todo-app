@@ -6,12 +6,22 @@
   align-items: center;
   justify-content: center;
   padding: 0.5rem;
-  gap: 0.5rem;
+  gap: 1rem;
   width: 100%;
   border-radius: $border-radius;
+  text-transform: capitalize;
+
+  &[data-not-sortable="true"] {
+    background-image: url("../../../../assets/pata.png"),
+      url("../../../../assets/pata.png");
+    background-position-x: 10%, 110%;
+    background-position-y: 100%, 100%;
+    background-repeat: no-repeat;
+  }
 
   @include themify($themes) {
     background-color: themed("bg-color2");
+    color: themed("fo-color-light");
   }
 
   .buttons-wrapper {
@@ -20,11 +30,11 @@
     gap: 4px;
 
     button {
-      padding: 0.5rem;
+      padding: 0.3rem;
       width: 100%;
 
       @include themify($themes) {
-        background-color: themed("bg-color");
+        background-color: themed("bg-color4");
       }
 
       svg {

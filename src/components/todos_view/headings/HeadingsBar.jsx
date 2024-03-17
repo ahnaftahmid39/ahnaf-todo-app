@@ -1,50 +1,20 @@
-import styles from "./HeadingsBar.module.scss";
 import TodoHeading from "./todo_heading/TodoHeading";
 import { fields } from "../../../utils/constants";
 
-const HeadingsBar = () => {
+const HeadingsBar = ({ className }) => {
   return (
-    <div className={styles["headings-wrapper"]}>
-      {/* TODO: customize non-sortable fields */}
+    <div className={`${className}`} >
+      <TodoHeading fieldName={fields.id} label="SN" />
+      <TodoHeading fieldName={fields.title} label="title" sortable />
+      <TodoHeading fieldName={fields.description} label="Description" />
+      <TodoHeading fieldName={fields.status} label="Status" sortable />
+      <TodoHeading fieldName={fields.priority} label="Priority" sortable />
       <TodoHeading
-        className={styles["serial-no"]}
-        fieldName={fields.id}
-        label="SN"
-      />
-      <TodoHeading
-        className={styles["title"]}
-        fieldName={fields.title}
-        label="title"
-        sortable
-      />
-      <TodoHeading
-        className={styles["description"]}
-        fieldName={fields.description}
-        label="Description"
-      />
-      <TodoHeading
-        className={styles["status"]}
-        fieldName={fields.status}
-        label="Status"
-        sortable
-      />
-      <TodoHeading
-        className={styles["priority"]}
-        fieldName={fields.priority}
-        label="Priority"
-        sortable
-      />
-      <TodoHeading
-        className={styles["creation-time"]}
         fieldName={fields.createdAt}
         label="Creation Time"
         sortable
       />
-      <TodoHeading
-        className={styles["actions"]}
-        fieldName={fields.id}
-        label="Actions"
-      />
+      <TodoHeading fieldName={fields.id} label="Action" />
     </div>
   );
 };
