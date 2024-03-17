@@ -5,16 +5,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  // flex-direction: column;
   /* spacing */
   padding: 1.5rem;
   gap: 1rem;
-
-  /* positioning */
-  position: fixed;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
 
   /* border-radius */
   border-top-left-radius: 1rem;
@@ -22,7 +16,12 @@
 }
 
 .control-bar button {
-  width: 100%;
+  // width: 100%;
+  background-color: transparent;
+  transition: transform 200ms;
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 .control-bar {

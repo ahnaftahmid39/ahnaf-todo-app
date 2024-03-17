@@ -20,8 +20,8 @@ function App() {
   return (
     <>
       <div className={`wrapper theme-${theme}`}>
-        <FiltersAndHeadingsBar />
         <ControlBar />
+        <FiltersAndHeadingsBar />
         <TodosView />
       </div>
     </>
