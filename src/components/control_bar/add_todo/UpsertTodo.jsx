@@ -33,8 +33,7 @@ const UpsertTodo = ({ label = "New", defaultTodo = emptyTodo }) => {
   const [resetCounter, setResetCounter] = useState(0);
   const btnRef = useRef(null);
 
-  // TODO:
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const closeModal = () => {
     setIsOpen(false);
