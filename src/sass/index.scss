@@ -94,13 +94,29 @@ button {
   font-family: inherit;
   cursor: pointer;
   transition: border-color 0.25s;
+
+  @include themify-global($themes) {
+    color: themed("fo-color-light");
+  }
 }
 button:hover {
-  border-color: #646cff;
+  @include themify-global($themes) {
+    border-color: themed("border-color");
+  }
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  @include themify-global($themes) {
+    outline: 4px solid themed("border-color");
+  }
+}
+
+a,
+div,
+p {
+  @include themify-global($themes) {
+    color: themed("fo-color");
+  }
 }
 
 svg {

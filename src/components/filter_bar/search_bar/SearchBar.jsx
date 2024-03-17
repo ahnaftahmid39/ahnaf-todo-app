@@ -40,6 +40,7 @@ const SearchBar = ({ placeholder = "Search" }) => {
         type="button"
         onClick={handleSearch}
         className={styles["searchbar-btn"]}
+        tabIndex={"-1"}
       >
         <CiSearch size={28} />
       </button>

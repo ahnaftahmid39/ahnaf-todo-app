@@ -16,7 +16,12 @@
 .searchbar-input,
 .searchbar-btn {
   border: none;
-  outline: none;
+}
+
+.searchbar-container:focus-within {
+  @include themify($themes) {
+    outline: 4px solid themed("border-color");
+  }
 }
 
 .searchbar-input::placeholder {

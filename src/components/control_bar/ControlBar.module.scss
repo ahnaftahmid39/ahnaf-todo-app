@@ -18,9 +18,9 @@
 .control-bar button {
   // width: 100%;
   background-color: transparent;
-  transition: transform 200ms;
-  &:hover {
-    transform: scale(1.1);
+  border-radius: $border-radius;
+  @include themify($themes) {
+    color: themed("fo-color-light");
   }
 }
 
