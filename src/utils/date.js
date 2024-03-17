@@ -69,7 +69,7 @@ function getDateTime(date = new Date()) {
     if (d1 - d2 == 1) {
       dateStr += "Yesterday at";
     } else if (d1 - d2 == 0) {
-      dateStr += "Today at";
+      dateStr += "Today";
     } else {
       dateStr = date.toLocaleDateString();
     }

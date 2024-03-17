@@ -64,7 +64,10 @@ const TodosView = () => {
         const createdAt = new Date(todo.createdAt);
         const timeDiff = getDateTime(createdAt);
         return (
-          <div className={styles["todo-row"]} key={todo.id}>
+          <div
+            className={`${styles["todo-row"]} ${styles["todo-content"]}`}
+            key={todo.id}
+          >
             <div>{idx + 1}</div>
             <div>{todo.title}</div>
             <div>{todo.description}</div>

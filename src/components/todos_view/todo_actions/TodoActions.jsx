@@ -4,6 +4,7 @@ import { useState } from "react";
 import UpsertTodo from "../../control_bar/add_todo/UpsertTodo";
 import useTodoStore from "../../../store/todoStore";
 import { fields, statusOptionsEnum } from "../../../utils/constants";
+import styles from "./TodoActions.module.scss";
 
 const TodoActions = ({ todo }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,8 +29,8 @@ const TodoActions = ({ todo }) => {
   };
   return (
     <>
-      <button onClick={openModal}>
-        <CiCircleMore size={24} />
+      <button className={styles['action-button']} onClick={openModal}>
+        <CiCircleMore  size={24} />
       </button>
       {/* TODO: make it a popup instead of todo */}
       <Modal open={isOpen} handleClose={closeModal}>

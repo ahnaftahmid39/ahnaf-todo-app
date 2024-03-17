@@ -1,0 +1,10 @@
+.action-button {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 1000px;
+  transition: transform 0.2s;
+  border: none;
+  &:hover {
+    transform: scale(1.3);
+  }
+}

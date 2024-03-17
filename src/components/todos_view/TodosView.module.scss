@@ -5,13 +5,24 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1rem;
+  // gap: 1rem;
 }
 
 .todo-row {
+  padding: 1rem 0rem;
   display: grid;
   $pw: 6.25;
   grid-template-columns: 1fr 2.5fr 5fr 2fr 2fr 2.5fr 1fr;
   place-items: center;
   gap: 1rem;
+  @include themify($themes) {
+    border-bottom: 1px solid themed("bg-color4");
+  }
+  &:first-child {
+    padding: 0;
+    border: none;
+  }
+  &:last-child {
+    border: none;
+  }
 }
