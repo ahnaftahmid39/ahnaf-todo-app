@@ -5,6 +5,7 @@ import useTodoStore from "../../../store/todoStore";
 import { uid } from "uid";
 import Modal from "../../modal/Modal";
 import { priorityOptions, statusOptions } from "../../../utils/constants";
+import { useHotkeys } from "react-hotkeys-hook";
 
 const emptyTodo = {
   title: "",
@@ -16,6 +17,14 @@ const emptyTodo = {
 const UpsertTodo = ({ label = "New", defaultTodo = emptyTodo }) => {
   const addTodo = useTodoStore((state) => state.addTodo);
   const updateTodo = useTodoStore((state) => state.updateTodo);
+
+  useHotkeys(
+    "shift+a",
+    () => {
+      openModal();
+    },
+    { preventDefault: true }
+  );
 
   const [todo, setTodo] = useState(defaultTodo);
   const [resetCounter, setResetCounter] = useState(0);
@@ -63,7 +72,7 @@ const UpsertTodo = ({ label = "New", defaultTodo = emptyTodo }) => {
   };
 
   const transferFocus = () => {
-    btnRef.current.focus();
+    if (btnRef && btnRef.current) btnRef.current.focus();
   };
 
   return (

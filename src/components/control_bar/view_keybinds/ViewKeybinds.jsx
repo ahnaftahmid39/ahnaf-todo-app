@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import Modal from "../../modal/Modal";
+import { useHotkeys } from "react-hotkeys-hook";
 
 const ViewKeybinds = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,9 +19,13 @@ const ViewKeybinds = () => {
     btnRef.current.focus();
   };
 
+  useHotkeys("shift+h", () => {
+    showModal();
+  });
+
   return (
     <>
-      <button type="button" onClick={showModal}>
+      <button ref={btnRef} type="button" onClick={showModal}>
         View Shortcuts
       </button>
       <Modal open={isOpen} handleClose={closeModal}>
@@ -28,41 +33,46 @@ const ViewKeybinds = () => {
           <h2>Keybinds</h2>
           <ul>
             <li>
-              <span>Ctrl + N</span>
+              <span>shift + a</span>
               <br></br>
-              <span>New Todo</span>
+              <span>Add New Todo</span>
             </li>
             <li>
-              <span>Ctrl + S</span>
+              <span>shift + h</span>
               <br></br>
-              <span>Save</span>
+              <span>Show Keybinds</span>
             </li>
             <li>
-              <span>Ctrl + Shift + C</span>
+              <span>shift + t</span>
               <br></br>
-              <span>Clear all</span>
+              <span>Toggle Theme</span>
             </li>
             <li>
-              <span>Ctrl + Shift + F</span>
+              <span>shift + x</span>
               <br></br>
-              <span>Filter</span>
+              <span>Clear All Todos</span>
             </li>
             <li>
-              <span>Ctrl + Shift + R</span>
+              <span>ctrl + k</span>
               <br></br>
-              <span>Reset filter</span>
+              <span>Go to Search Bar</span>
             </li>
             <li>
-              <span>Ctrl + Shift + T</span>
+              <span>alt + i</span>
               <br></br>
+              <span>Filter In-progress Todos </span>
+            </li>
+            <li>
+              <span>alt + p</span>
+              <br></br>
+              <span>Filter Pending</span>
+            </li>
+            <li>
+              <span>alt + m</span>
+              <br></br>
+              <span>Reset Filter</span>
+            </li>
 
-              <span>Toggle theme</span>
-            </li>
-            <li>
-              <span>Ctrl + Shift + H</span>
-              <br></br>
-              <span>View keybinds</span>
-            </li>
           </ul>
         </div>
       </Modal>

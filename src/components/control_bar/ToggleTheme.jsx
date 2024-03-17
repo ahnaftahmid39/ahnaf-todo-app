@@ -1,3 +1,4 @@
+import { useHotkeys } from "react-hotkeys-hook";
 import { THEMES, useThemeStore } from "../../store/themeStore";
 
 const ToggleTheme = () => {
@@ -11,6 +12,10 @@ const ToggleTheme = () => {
   } else if (currentTheme === THEMES.light) {
     buttonLabel = "Switch to dark";
   }
+
+  useHotkeys("shift+t", () => {
+    toggleTheme();
+  });
 
   return (
     <>

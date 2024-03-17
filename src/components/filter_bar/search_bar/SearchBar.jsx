@@ -2,9 +2,21 @@ import { useRef } from "react";
 import styles from "./SearchBar.module.scss";
 import { CiSearch } from "react-icons/ci";
 import useTodoStore from "../../../store/todoStore";
+import { useHotkeys } from "react-hotkeys-hook";
 const SearchBar = ({ placeholder = "Search" }) => {
   const setSearchText = useTodoStore((state) => state.setSearchText);
   const inputRef = useRef(null);
+
+  useHotkeys(
+    "ctrl+k",
+    () => {
+      if (inputRef && inputRef.current) {
+        inputRef.current.focus();
+      }
+    },
+    { preventDefault: true }
+  );
+
   const handleSearch = () => {
     if (inputRef && inputRef.current) {
       setSearchText(inputRef.current.value);

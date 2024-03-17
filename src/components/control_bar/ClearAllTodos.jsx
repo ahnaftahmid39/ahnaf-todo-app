@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import useTodoStore from "../../store/todoStore";
 import Modal from "../modal/Modal";
 import Warning from "../warning/Warning";
+import { useHotkeys } from "react-hotkeys-hook";
 
 const ClearAllTodos = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,6 +26,10 @@ const ClearAllTodos = () => {
   const transferFocus = () => {
     btnRef.current.focus();
   };
+
+  useHotkeys("shift+x", () => {
+    showModal();
+  });
 
   return (
     <>

@@ -1,3 +1,4 @@
+import { useHotkeys } from "react-hotkeys-hook";
 import useTodoStore from "../../../store/todoStore";
 
 const ClearAllFilter = () => {
@@ -7,9 +8,13 @@ const ClearAllFilter = () => {
     clearFilters();
     clearSorters();
   };
+
+  useHotkeys("alt+m", () => {
+    handleClearAllFilters();
+  });
   return (
     <>
-      <button onClick={handleClearAllFilters}>Clear all filter</button>
+      <button onClick={handleClearAllFilters}>Reset</button>
     </>
   );
 };

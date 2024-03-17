@@ -5,6 +5,7 @@ import AddFilterForm from "./AddFilterForm";
 import ViewFilters from "./ViewFilters";
 import AddSorterForm from "./AddSorterForm";
 import ViewSorters from "./ViewSorters";
+import { useHotkeys } from "react-hotkeys-hook";
 
 const AdvancedFilter = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,6 +17,14 @@ const AdvancedFilter = () => {
   const closeModal = () => {
     setIsOpen(false);
   };
+
+  useHotkeys(
+    "alt+l",
+    () => {
+      openModal();
+    },
+    { preventDefault: true }
+  );
 
   return (
     <>
