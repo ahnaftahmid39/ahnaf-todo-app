@@ -5,7 +5,7 @@ import TodosView from "./components/todos_view/TodosView";
 import { getTodos } from "./utils/persistStore";
 import useTodoStore from "./store/todoStore";
 import { useThemeStore } from "./store/themeStore";
-import FiltersAndHeadingsBar from "./components/filter_bar/FiltersAndHeadingsBar";
+import FilterBar from "./components/filter_bar/FilterBar";
 
 function App() {
   useEffect(() => {
@@ -22,7 +22,7 @@ function App() {
       <div className={`theme-${theme}`}>
         <div className={styles["wrapper"]}>
           <ControlBar />
-          <FiltersAndHeadingsBar />
+          <FilterBar />
           <TodosView />
         </div>
       </div>

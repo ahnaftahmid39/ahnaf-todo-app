@@ -1,0 +1,36 @@
+@import "../../sass/globals";
+
+.filter-action-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: $border-radius;
+  gap: 1rem;
+  width: 100%;
+
+  @include themify($themes) {
+    background-color: themed("bg-color");
+  }
+
+  @media screen and (min-width: 1080px) {
+    flex-direction: row;
+  }
+
+  .action-buttons-wrapper {
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+
+    button {
+      text-transform: capitalize;
+      border-radius: $border-radius;
+      width: 100%;
+      @include themify($themes) {
+        background-color: themed("bg-color2");
+      }
+    }
+    @media screen and (min-width: 1080px) {
+      width: 60%;
+    }
+  }
+}

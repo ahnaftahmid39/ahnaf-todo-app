@@ -1,12 +1,13 @@
 import { useHotkeys } from "react-hotkeys-hook";
-import { fields, statusOptionsEnum } from "../../../utils/constants";
-import SearchBar from "../search_bar/SearchBar";
-import ClearAllFilter from "./ClearAllFilter";
-import FilterButton from "./FilterButton";
-import AdvancedFilter from "./advanced_filter/AdvancedFilter";
-import useTodoStore from "../../../store/todoStore";
-import styles from "./FilterActionsBar.module.scss";
-const FilterActionsBar = () => {
+import useTodoStore from "../../store/todoStore";
+import { fields, statusOptionsEnum } from "../../utils/constants";
+import styles from './FilterBar.module.scss';
+import SearchBar from "./search_bar/SearchBar";
+import FilterButton from "./filter_actions/FilterButton";
+import AdvancedFilter from "./filter_actions/advanced_filter/AdvancedFilter";
+import ClearAllFilter from "./filter_actions/ClearAllFilter";
+
+const FilterBar = () => {
   const setOneFilter = useTodoStore((state) => state.setOneFilter);
   useHotkeys("alt+p", () => {
     setOneFilter(fields.status, statusOptionsEnum.PENDING);
@@ -35,4 +36,4 @@ const FilterActionsBar = () => {
   );
 };
 
-export default FilterActionsBar;
+export default FilterBar;
