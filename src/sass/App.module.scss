@@ -1,14 +1,21 @@
+@import "./globals";
+
 .wrapper {
   box-sizing: border-box;
   display: flex;
-  // align-items: center;
-  // justify-content: center;
   min-height: 100vh;
   flex-direction: column;
   width: 100%;
-  padding: 0 5%;
+  padding: 0 2%;
 }
+.wrapper {
+  @include themify($themes) {
+    background-color: themed("bg-color3");
+    color: themed("fo-color");
+  }
 
+  border: transparent;
+}
 @media screen and (min-width: 768px) {
   .wrapper {
     padding: 0 10%;
@@ -18,14 +25,4 @@
   .wrapper {
     padding: 0 15%;
   }
-}
-
-table {
-  text-align: center;
-  border-collapse: collapse; /* 'cellspacing' equivalent */
-}
-
-table td,
-table th {
-  padding: 0.5rem; /* 'cellpadding' equivalent */
 }

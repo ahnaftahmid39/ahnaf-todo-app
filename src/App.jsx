@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import "./sass/App.scss";
+import styles from "./sass/App.module.scss";
 import ControlBar from "./components/control_bar/ControlBar";
 import TodosView from "./components/todos_view/TodosView";
 import { getTodos } from "./utils/persistStore";
@@ -19,10 +19,12 @@ function App() {
 
   return (
     <>
-      <div className={`wrapper theme-${theme}`}>
-        <ControlBar />
-        <FiltersAndHeadingsBar />
-        <TodosView />
+      <div className={`theme-${theme}`}>
+        <div className={styles["wrapper"]}>
+          <ControlBar />
+          <FiltersAndHeadingsBar />
+          <TodosView />
+        </div>
       </div>
     </>
   );

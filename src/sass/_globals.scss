@@ -14,6 +14,8 @@ $priority-flex: 2;
 $creation-time-flex: 2.5;
 $actions-flex: 2;
 
+$border-radius: 1rem;
+
 $themes: (
   light: (
     bg-color: $bg-color,
@@ -49,6 +51,7 @@ $themes: (
     }
   }
 }
+
 @function themed($key) {
   @return map-get($theme-map, $key);
 }

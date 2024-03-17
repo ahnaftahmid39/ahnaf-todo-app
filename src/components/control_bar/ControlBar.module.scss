@@ -1,18 +1,17 @@
 @import "../../sass/globals";
 
-.control-bar {
-  /* layout */
+.control-bar-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  // flex-direction: column;
-  /* spacing */
-  padding: 1.5rem;
-  gap: 1rem;
+  padding: 1rem;
+}
 
-  /* border-radius */
-  border-top-left-radius: 1rem;
-  border-bottom-left-radius: 1rem;
+.control-bar {
+  padding: 0.5rem;
+  gap: 1rem;
+  border-radius: $border-radius;
+  width: max-content;
 }
 
 .control-bar button {

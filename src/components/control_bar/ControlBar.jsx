@@ -6,11 +6,13 @@ import ViewKeybinds from "./view_keybinds/ViewKeybinds";
 
 const ControlBar = () => {
   return (
-    <div className={styles["control-bar"]}>
-      <UpsertTodo />
-      <ClearAllTodos />
-      <ToggleTheme />
-      <ViewKeybinds />
+    <div className={styles['control-bar-wrapper']}>
+      <div className={styles["control-bar"]}>
+        <UpsertTodo />
+        <ClearAllTodos />
+        <ToggleTheme />
+        <ViewKeybinds />
+      </div>
     </div>
   );
 };
