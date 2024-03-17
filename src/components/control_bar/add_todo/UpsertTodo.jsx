@@ -84,7 +84,10 @@ const UpsertTodo = ({ label = "New", defaultTodo = emptyTodo }) => {
         {label.toLowerCase() === "new" ? (
           <CiCirclePlus size={32} />
         ) : (
-          <CiEdit size={32} />
+          <div className={styles["edit-button-wrapper"]}>
+            <CiEdit size={24} />
+            <label>Edit</label>
+          </div>
         )}
       </button>
       <Modal handleClose={closeModal} open={isOpen}>

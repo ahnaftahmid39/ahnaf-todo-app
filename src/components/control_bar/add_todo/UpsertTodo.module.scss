@@ -1,5 +1,15 @@
 @import "../../../sass/globals";
 
+.edit-button-wrapper {
+  display: flex;
+  // justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  @include themify($themes) {
+    color: themed("fo-color-light");
+  }
+}
+
 .form-wrapper {
   display: flex;
   flex-direction: column;
