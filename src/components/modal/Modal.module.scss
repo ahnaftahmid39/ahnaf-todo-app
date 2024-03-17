@@ -16,6 +16,10 @@
   z-index: 101;
   border-radius: 16px;
 
+  & > * {
+    font-size: 0.9rem;
+  }
+
   @include themify($themes) {
     background-color: themed("bg-color");
   }

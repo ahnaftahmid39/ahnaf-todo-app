@@ -1,0 +1,58 @@
+@import "../../sass/globals";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  label {
+    margin-left: 0.5rem;
+  }
+  input,
+  select {
+    border-radius: $border-radius;
+    padding: 0.5rem 0.7rem;
+    border: 0;
+    @include themify($themes) {
+      background-color: themed("bg-color2");
+      color: themed("fo-color-light");
+    }
+
+    &:focus {
+      @include themify($themes) {
+        outline: 4px solid themed("border-color");
+      }
+    }
+  }
+
+  .custom-select {
+    // display: flex;
+    position: relative;
+
+    select {
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .select-custom-arrow {
+      overflow: hidden;
+      border-radius: 0 $border-radius $border-radius 0;
+      position: absolute;
+      display: grid;
+      place-items: center;
+      top: 0;
+      right: 0;
+      width: 3rem;
+      height: 100%;
+      pointer-events: none;
+      @include themify($themes) {
+        background-color: darken(themed("bg-color2"), 5%);
+      }
+
+      svg {
+        @include themify($themes) {
+          stroke: darken(themed("bg-color"), 30%);
+        }
+      }
+    }
+  }
+}

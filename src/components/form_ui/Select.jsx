@@ -1,3 +1,5 @@
+import formStyles from "./FormUI.module.scss";
+import { HiOutlineSelector } from "react-icons/hi";
 import { useEffect, useRef } from "react";
 
 const Select = ({
@@ -15,21 +17,26 @@ const Select = ({
     }
   }, [resetCounter, defaultValue]);
   return (
-    <div>
-      <label htmlFor={fieldName}>{label}</label>
-      <select
-        ref={select}
-        id={fieldName}
-        name={fieldName}
-        defaultValue={defaultValue}
-        onChange={onChangeHandler}
-      >
-        {options.map((x, i) => (
-          <option key={i} value={x}>
-            {x}
-          </option>
-        ))}
-      </select>
+    <div className={`${formStyles["wrapper"]}`}>
+      <label htmlFor={fieldName}>{label}:</label>
+      <div className={formStyles["custom-select"]}>
+        <select
+          ref={select}
+          id={fieldName}
+          name={fieldName}
+          defaultValue={defaultValue}
+          onChange={onChangeHandler}
+        >
+          {options.map((x, i) => (
+            <option key={i} value={x}>
+              {x}
+            </option>
+          ))}
+        </select>
+        <span className={formStyles["select-custom-arrow"]}>
+          <HiOutlineSelector size={20} />
+        </span>
+      </div>
     </div>
   );
 };

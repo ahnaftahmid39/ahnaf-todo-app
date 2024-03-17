@@ -1,3 +1,4 @@
+import formStyles from "./FormUI.module.scss";
 import { useEffect, useRef } from "react";
 
 const Input = ({
@@ -25,7 +26,7 @@ const Input = ({
   }, [resetCounter, defaultValue]);
 
   return (
-    <div>
+    <div className={`${formStyles["wrapper"]}`}>
       <label htmlFor={fieldName}>{label}:</label>
       <input
         ref={input}

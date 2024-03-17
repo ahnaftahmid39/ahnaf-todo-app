@@ -7,6 +7,8 @@ import Modal from "../../modal/Modal";
 import { priorityOptions, statusOptions } from "../../../utils/constants";
 import { useHotkeys } from "react-hotkeys-hook";
 import { CiCirclePlus, CiEdit } from "react-icons/ci";
+import { IoIosCloseCircleOutline } from "react-icons/io";
+import styles from "./UpsertTodo.module.scss";
 
 const emptyTodo = {
   title: "",
@@ -31,7 +33,8 @@ const UpsertTodo = ({ label = "New", defaultTodo = emptyTodo }) => {
   const [resetCounter, setResetCounter] = useState(0);
   const btnRef = useRef(null);
 
-  const [isOpen, setIsOpen] = useState(false);
+  // TODO:
+  const [isOpen, setIsOpen] = useState(true);
 
   const closeModal = () => {
     setIsOpen(false);
@@ -79,10 +82,22 @@ const UpsertTodo = ({ label = "New", defaultTodo = emptyTodo }) => {
   return (
     <>
       <button ref={btnRef} onClick={openModal}>
-        {label === "New" ? <CiCirclePlus size={32} /> : <CiEdit size={32} />}
+        {label.toLowerCase() === "new" ? (
+          <CiCirclePlus size={32} />
+        ) : (
+          <CiEdit size={32} />
+        )}
       </button>
       <Modal handleClose={closeModal} open={isOpen}>
-        <form>
+        <div className={styles["title-close-wrapper"]}>
+          <label>
+            {label.toLowerCase() === "new" ? "Add new Todo" : "Update Todo"}
+          </label>
+          <button onClick={closeModal}>
+            <IoIosCloseCircleOutline size={24} />
+          </button>
+        </div>
+        <form onSubmit={handleFormSubmit} className={styles["form-wrapper"]}>
           <Input
             label={"Title"}
             fieldName={"title"}
@@ -119,12 +134,14 @@ const UpsertTodo = ({ label = "New", defaultTodo = emptyTodo }) => {
             resetCounter={resetCounter}
           />
 
-          <button type="button" onClick={handleFormSubmit}>
-            {defaultTodo.id === undefined ? "Add" : "Update"}
-          </button>
-          <button type="button" onClick={resetForm}>
-            Clear
-          </button>
+          <div className={styles["button-wrapper"]}>
+            <button type="button" onClick={handleFormSubmit}>
+              {defaultTodo.id === undefined ? "Add" : "Update"}
+            </button>
+            <button type="button" onClick={resetForm}>
+              Clear
+            </button>
+          </div>
         </form>
       </Modal>
     </>

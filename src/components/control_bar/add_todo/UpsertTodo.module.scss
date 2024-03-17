@@ -1,0 +1,61 @@
+@import "../../../sass/globals";
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .button-wrapper {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @media screen and (min-width: 40rem) {
+      flex-direction: row;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.4rem 1rem;
+      border-radius: $border-radius;
+
+      &:first-of-type {
+        @include themify($themes) {
+          background-color: themed("bg-color4");
+        }
+      }
+      &:last-of-type {
+        @include themify($themes) {
+          background-color: themed("bg-color3");
+        }
+      }
+    }
+  }
+}
+
+.title-close-wrapper {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  label {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem;
+  }
+
+  button {
+    background-color: transparent;
+    border-radius: $border-radius;
+    border: none;
+    transition: transform 0.2s;
+    &:hover {
+      border: none;
+      transform: scale(1.3);
+    }
+  }
+}

@@ -67,7 +67,7 @@ function getDateTime(date = new Date()) {
     const d1 = today.getDate();
     const d2 = date.getDate();
     if (d1 - d2 == 1) {
-      dateStr += "Yesterday at";
+      dateStr += "Yesterday";
     } else if (d1 - d2 == 0) {
       dateStr += "Today";
     } else {
