@@ -1,3 +1,5 @@
+@import "../../sass/globals";
+
 .overlay {
   position: absolute;
   inset: 0;
@@ -10,10 +12,13 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgb(73, 86, 145);
   padding: 20px;
   z-index: 101;
   border-radius: 16px;
+
+  @include themify($themes) {
+    background-color: themed("bg-color");
+  }
 }
 
 .modal:focus {

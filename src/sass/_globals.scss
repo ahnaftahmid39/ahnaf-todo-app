@@ -5,7 +5,7 @@ $bg-color2: hsla(112, 100%, 97%, 100%);
 $bg-color3: hsla(130, 54%, 94%, 100%);
 $bg-color4: hsla(140, 52%, 81%, 100%);
 $fo-color: hsla(0, 0%, 24%, 100%);
-$danger-color: hsl(0, 41%, 56%);
+$danger-color: hsla(0, 90%, 70%, 100%);
 
 $border-radius: 1rem;
 
@@ -17,8 +17,8 @@ $themes: (
     bg-color4: $bg-color4,
     fo-color: $fo-color,
     fo-color-light: hsla(0, 0%, 35%, 100%),
-    fo-color-dim: #767676,
-    border-color: #b4daa7,
+    fo-color-dim: hsl(0, 0%, 46%),
+    border-color: hsl(105, 41%, 75%),
     danger-color: $danger-color,
   ),
   dark: (

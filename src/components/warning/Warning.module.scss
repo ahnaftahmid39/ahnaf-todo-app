@@ -1,0 +1,41 @@
+@import "../../sass/globals";
+
+.warning-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+
+  .warning-action-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    button {
+      border-radius: $border-radius;
+      width: 5rem;
+      padding: 0.5rem 1rem;
+      border: 2px solid transparent;
+      @include themify($themes) {
+        background-color: themed("bg-color2");
+      }
+
+      &:first-of-type {
+        @include themify($themes) {
+          background-color: themed("danger-color");
+        }
+        &:focus {
+          @include themify($themes) {
+            outline-color: lighten(themed("danger-color"), 10%);
+          }
+        }
+        &:hover {
+          @include themify($themes) {
+            border-color: darken(themed("danger-color"), 10%);
+          }
+        }
+      }
+    }
+  }
+}

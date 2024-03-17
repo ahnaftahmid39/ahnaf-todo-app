@@ -29,7 +29,7 @@ const Modal = ({ open, handleClose, children, ...props }) => {
         {...props}
       >
         {children}
-        <button onClick={handleClose}>Close</button>
+        {/* <button onClick={handleClose}>Close</button> */}
       </div>
     </>,
     document.getElementById("portal")
