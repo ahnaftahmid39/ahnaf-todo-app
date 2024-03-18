@@ -42,35 +42,51 @@ const ViewKeybinds = () => {
           <ul>
             <li>
               <span> Add New Todo</span>
-              <kbd>shift + a</kbd>
+              <span>
+                <kbd>shift</kbd> + <kbd>a</kbd>
+              </span>
             </li>
             <li>
               <span> Show Keybinds</span>
-              <kbd>shift + h</kbd>
+              <span>
+                <kbd>shift</kbd> + <kbd>h</kbd>
+              </span>
             </li>
             <li>
               <span>Toggle Theme</span>
-              <kbd>shift + t</kbd>
+              <span>
+                <kbd>shift</kbd> + <kbd>t</kbd>
+              </span>
             </li>
             <li>
               <span> Clear All Todos</span>
-              <kbd>shift + x</kbd>
+              <span>
+                <kbd>shift</kbd> + <kbd>x</kbd>
+              </span>
             </li>
             <li>
               <span> Go to Search Bar</span>
-              <kbd>ctrl + k</kbd>
+              <span>
+                <kbd>ctrl</kbd> + <kbd>k</kbd>
+              </span>
             </li>
             <li>
               <span> Filter In-progress Todos </span>
-              <kbd>alt + i</kbd>
+              <span>
+                <kbd>alt</kbd> + <kbd>i</kbd>
+              </span>
             </li>
             <li>
               <span> Filter Pending</span>
-              <kbd>alt + p</kbd>
+              <span>
+                <kbd>alt</kbd> + <kbd>p</kbd>
+              </span>
             </li>
             <li>
               <span> Reset Filter</span>
-              <kbd>alt + m</kbd>
+              <span>
+                <kbd>alt</kbd> + <kbd>m</kbd>
+              </span>
             </li>
           </ul>
         </div>

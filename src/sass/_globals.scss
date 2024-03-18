@@ -1,32 +1,29 @@
 @use "sass:map";
 
-$bg-color: hsla(144, 42%, 89%, 100%);
-$bg-color2: hsla(112, 100%, 97%, 100%);
-$bg-color3: hsla(130, 54%, 94%, 100%);
-$bg-color4: hsla(140, 52%, 81%, 100%);
-$fo-color: hsla(0, 0%, 24%, 100%);
-$danger-color: hsla(0, 90%, 80%, 100%);
-
 $border-radius: 1rem;
 
 $themes: (
   light: (
-    bg-color: $bg-color,
-    bg-color2: $bg-color2,
-    bg-color3: $bg-color3,
-    bg-color4: $bg-color4,
-    fo-color: $fo-color,
+    bg-color: hsla(144, 42%, 89%, 100%),
+    bg-color2: hsla(112, 100%, 97%, 100%),
+    bg-color3: hsla(130, 54%, 94%, 100%),
+    bg-color4: hsla(140, 52%, 81%, 100%),
+    fo-color: hsla(0, 0%, 24%, 100%),
     fo-color-light: hsla(0, 0%, 35%, 100%),
     fo-color-dim: hsl(0, 0%, 46%),
     border-color: hsl(105, 41%, 75%),
-    danger-color: $danger-color,
+    danger-color: hsla(0, 90%, 80%, 100%),
   ),
   dark: (
-    bg-color: $fo-color,
-    bg-color2: hsla(0, 0%, 7%, 100%),
-    bg-color3: hsla(0, 0%, 14%, 100%),
-    fo-color: $bg-color,
-    danger-color: hsla(0, 0%, 14%, 100%),
+    bg-color: hsla(142, 10%, 15%),
+    bg-color2: rgb(22, 24, 22),
+    bg-color3: rgb(31, 34, 32),
+    bg-color4: rgb(32, 41, 35),
+    fo-color: hsl(0, 0%, 83%),
+    fo-color-light: hsl(0, 0%, 72%),
+    fo-color-dim: hsl(0, 1%, 66%),
+    border-color: hsl(105, 41%, 75%),
+    danger-color: hsla(0, 90%, 80%, 100%),
   ),
 );
 

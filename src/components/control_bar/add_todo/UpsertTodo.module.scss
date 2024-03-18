@@ -28,7 +28,6 @@
     button {
       width: 100%;
       padding: 0.4rem 1rem;
-      border-radius: $border-radius;
 
       &:first-of-type {
         @include themify($themes) {
@@ -59,7 +58,7 @@
   }
 
   button {
-    background-color: transparent;
+    background-color: transparent !important;
     border-radius: $border-radius;
     border: none;
     transition: transform 0.2s;

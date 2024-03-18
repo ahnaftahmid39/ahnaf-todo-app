@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Input from "../../form_ui/Input";
 import Select from "../../form_ui/Select";
 import useTodoStore from "../../../store/todoStore";
@@ -17,7 +17,11 @@ const emptyTodo = {
   status: "pending",
 };
 
-const UpsertTodo = ({ label = "New", defaultTodo = emptyTodo }) => {
+const UpsertTodo = ({
+  label = "New",
+  defaultTodo = emptyTodo,
+  onEditButtonClick,
+}) => {
   const addTodo = useTodoStore((state) => state.addTodo);
   const updateTodo = useTodoStore((state) => state.updateTodo);
 
@@ -43,7 +47,10 @@ const UpsertTodo = ({ label = "New", defaultTodo = emptyTodo }) => {
   const openModal = () => {
     setIsOpen(true);
   };
-
+  const handleAddOrEditButton = () => {
+    openModal();
+    if (onEditButtonClick) onEditButtonClick();
+  };
   const resetForm = () => {
     setTodo({
       ...defaultTodo,
@@ -80,7 +87,7 @@ const UpsertTodo = ({ label = "New", defaultTodo = emptyTodo }) => {
 
   return (
     <>
-      <button ref={btnRef} onClick={openModal}>
+      <button ref={btnRef} onClick={handleAddOrEditButton}>
         {label.toLowerCase() === "new" ? (
           <CiCirclePlus size={32} />
         ) : (
@@ -141,7 +148,7 @@ const UpsertTodo = ({ label = "New", defaultTodo = emptyTodo }) => {
               {defaultTodo.id === undefined ? "Add" : "Update"}
             </button>
             <button type="button" onClick={resetForm}>
-              Clear
+              {label.toLowerCase() === "new" ? "Clear" : "Reset"}
             </button>
           </div>
         </form>

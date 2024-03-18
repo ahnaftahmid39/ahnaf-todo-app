@@ -46,7 +46,11 @@ const TodoActions = ({ todo }) => {
               <IoIosCloseCircleOutline size={24} />
             </button>
           </div>
-          <UpsertTodo label={"Edit"} defaultTodo={todo} />
+          <UpsertTodo
+            onEditButtonClick={closeModal}
+            label={"Edit"}
+            defaultTodo={todo}
+          />
           <button
             onClick={handleDelete}
             className={styles["icon-button-wrapper"]}

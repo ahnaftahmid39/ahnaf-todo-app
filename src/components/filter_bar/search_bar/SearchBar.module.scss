@@ -67,11 +67,6 @@
   }
 }
 
-.searchbar-btn svg * {
-  @include themify($themes) {
-    stroke: themed($fo-color);
-  }
-}
 
 .searchbar-btn:focus {
   outline: none;

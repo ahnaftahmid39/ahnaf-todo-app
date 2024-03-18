@@ -50,7 +50,7 @@
 
       svg {
         @include themify($themes) {
-          stroke: darken(themed("bg-color"), 30%);
+          stroke: themed("bg-color4");
         }
       }
     }
