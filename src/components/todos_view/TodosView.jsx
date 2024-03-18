@@ -58,28 +58,30 @@ const TodosView = () => {
     });
 
   return (
-    <div className={styles["todos-view"]}>
-      <HeadingsBar className={styles["todo-row"]} />
-      {finalTodos.map((todo, idx) => {
-        const createdAt = new Date(todo.createdAt);
-        const timeDiff = getDateTime(createdAt);
-        return (
-          <div
-            className={`${styles["todo-row"]} ${styles["todo-content"]}`}
-            key={todo.id}
-          >
-            <div>{idx + 1}</div>
-            <div>{todo.title}</div>
-            <div>{todo.description}</div>
-            <div>{todo.status}</div>
-            <div>{todo.priority}</div>
-            <div>{timeDiff}</div>
-            <div>
-              <TodoActions todo={todo} />
+    <div className={styles["todos-wrapper"]}>
+      <HeadingsBar className={styles["todo-header"]} />
+      <div className={styles['todos-view']}>
+        {finalTodos.map((todo, idx) => {
+          const createdAt = new Date(todo.createdAt);
+          const timeDiff = getDateTime(createdAt);
+          return (
+            <div
+              className={`${styles["todo-row"]} ${styles["todo-content"]}`}
+              key={todo.id}
+            >
+              <div>{idx + 1}</div>
+              <div className={styles['title']}>{todo.title}</div>
+              <div className={styles['description']}>{todo.description}</div>
+              <div>{todo.status}</div>
+              <div>{todo.priority}</div>
+              <div>{timeDiff}</div>
+              <div>
+                <TodoActions todo={todo} />
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 };
