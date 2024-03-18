@@ -1,6 +1,11 @@
 @import "../../sass/globals";
 
 .control-bar-wrapper {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  z-index: 5;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,9 +15,13 @@
 .control-bar {
   display: flex;
   padding: 0.5rem;
-  gap: 2rem;
+  gap: 0.5rem;
   border-radius: $border-radius;
   width: max-content;
+
+  @media screen and (min-width: 600px) {
+    gap: 2rem;
+  }
 }
 
 .control-bar button {
