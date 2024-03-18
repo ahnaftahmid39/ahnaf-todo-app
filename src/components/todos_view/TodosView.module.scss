@@ -8,8 +8,6 @@
 .todos-view {
   overflow: auto;
   height: 65vh;
-
-  
 }
 .todo-header,
 .todo-row {
@@ -18,6 +16,19 @@
   $pw: 6.25;
   grid-template-columns: 1fr 2.5fr 5fr 2fr 2fr 2.5fr 1fr;
   gap: 1rem;
+}
+.serial {
+  @include themify($themes) {
+    color: themed("fo-color-light");
+  }
+}
+.priority {
+  font-size: x-small;
+}
+.serial,
+.title,
+.description {
+  align-self: flex-start;
 }
 .todo-row {
   & > * {

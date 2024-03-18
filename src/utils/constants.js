@@ -34,6 +34,12 @@ const statusNumericMapper = {
   [statusOptionsEnum.COMPLETED]: 3,
   [statusOptionsEnum.FAILED]: 4,
 };
+const statusColorMapper = {
+  [statusOptionsEnum.PENDING]: "#5bc0de",
+  [statusOptionsEnum.INPROGRESS]: "#ff7f0e",
+  [statusOptionsEnum.COMPLETED]: "#5cb85c",
+  [statusOptionsEnum.FAILED]: "#d9534f",
+};
 
 const SORTING_ORDERS = {
   ASC: "asc",
@@ -48,5 +54,6 @@ export {
   statusOptionsEnum,
   priorityOptions,
   statusNumericMapper,
+  statusColorMapper,
   SORTING_ORDERS,
 };

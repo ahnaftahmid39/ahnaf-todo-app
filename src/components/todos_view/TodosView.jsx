@@ -1,10 +1,11 @@
-import { getDateTime } from "../../utils/date";
+import { fromNow } from "../../utils/date";
 import styles from "./TodosView.module.scss";
 import useTodoStore from "../../store/todoStore";
 import { todoCompare } from "../../utils/comparators";
 import TodoActions from "./todo_actions/TodoActions";
-import { fields } from "../../utils/constants";
+import { fields, statusColorMapper } from "../../utils/constants";
 import HeadingsBar from "./headings/HeadingsBar";
+import PriorityStars from "./stars/PriorityStars";
 
 const TodosView = () => {
   const todos = useTodoStore((state) => state.todos);
@@ -63,18 +64,35 @@ const TodosView = () => {
       <div className={styles["todos-view"]}>
         {finalTodos.map((todo, idx) => {
           const createdAt = new Date(todo.createdAt);
-          const timeDiff = getDateTime(createdAt);
+          const timeDiff = fromNow(createdAt);
           return (
             <div
               className={`${styles["todo-row"]} ${styles["todo-content"]}`}
               key={todo.id}
             >
-              <div>{idx + 1}</div>
+              <div className={styles["serial"]}>[ {idx + 1} ]</div>
               <div className={styles["title"]}>{todo.title}</div>
               <div className={styles["description"]}>{todo.description}</div>
-              <div>{todo.status}</div>
-              <div>{todo.priority}</div>
-              <div>{timeDiff}</div>
+              <div
+                style={{
+                  color: statusColorMapper[todo.status],
+                  fontWeight: "500",
+                  textTransform: "capitalize",
+                }}
+              >
+                {todo.status}
+              </div>
+              <div className={styles["priority"]}>
+                <PriorityStars priority={todo.priority} />
+              </div>
+              <div
+                style={{
+                  fontWeight: "400",
+                  fontSize: "14px",
+                }}
+              >
+                {timeDiff}
+              </div>
               <TodoActions todo={todo} />
             </div>
           );
