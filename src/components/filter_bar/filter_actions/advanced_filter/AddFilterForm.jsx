@@ -2,6 +2,7 @@ import { useState } from "react";
 import { filterableFields, possibleValues } from "../../../../utils/constants";
 import styles from "./AddFilterForm.module.scss";
 import useTodoStore from "../../../../store/todoStore";
+import Select from "../../../form_ui/Select";
 
 const AddFilterForm = () => {
   const [fieldName, setFieldName] = useState("");
@@ -12,12 +13,20 @@ const AddFilterForm = () => {
   const filters = useTodoStore((state) => state.filters);
   const usedFilterFields = filters.map((f) => f.fieldName);
 
+  const resetForm = () => {
+    setFieldName("");
+    setFieldValue("");
+    setInclude(true);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     addFilter(fieldName, fieldValue, include);
+    resetForm();
   };
 
   const handleFieldNameChange = (e) => {
+    console.log(e.target.value);
     setFieldName(e.target.value);
   };
   const handleFieldValueChange = (e) => {
@@ -32,71 +41,66 @@ const AddFilterForm = () => {
   };
 
   const handleCancel = () => {
-    setFieldName("");
-    setFieldValue("");
-    setInclude(true);
+    resetForm();
   };
 
+  if (usedFilterFields.length == filterableFields.length) return null;
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={styles['filter-form']} onSubmit={handleSubmit}>
       <div>
-        <select
-          defaultValue={"Select Field"}
+        <Select
+          label={"Select Field"}
           className={styles["select-field"]}
-          onChange={handleFieldNameChange}
+          onChangeHandler={handleFieldNameChange}
         >
-          <option value="Select Field" disabled>
-            Select Field
-          </option>
           {Object.values(filterableFields).map((field, idx) => {
-            if (usedFilterFields.includes(field)) return null;
             return (
-              <option value={field} key={idx}>
+              <option
+                disabled={usedFilterFields.includes(field)}
+                value={field}
+                key={idx}
+              >
                 {field}
               </option>
             );
           })}
-        </select>
+        </Select>
       </div>
       <div>
-        <select
+        <Select
           className={styles["select-value"]}
           disabled={fieldName === ""}
-          onChange={handleFieldValueChange}
-          defaultValue={"default"}
+          onChangeHandler={handleFieldValueChange}
+          label={"Select Value"}
         >
-          <option value="default" disabled>
-            Select Value
-          </option>
           {fieldName !== "" &&
             possibleValues[fieldName].map((value, idx) => (
               <option value={value} key={idx}>
                 {value}
               </option>
             ))}
-        </select>
+        </Select>
       </div>
       <div>
-        <select
+        <Select
           className={styles["select-include"]}
-          onChange={handleIncludeChange}
+          onChangeHandler={handleIncludeChange}
+          label={"Include/Exclude"}
           disabled={fieldName === ""}
-          defaultValue={"default"}
         >
-          <option value="default" disabled>
-            Include/Exclude
-          </option>
           {["Include", "Exclude"].map((value, idx) => (
             <option value={value} key={idx}>
               {value}
             </option>
           ))}
-        </select>
+        </Select>
       </div>
-      <button type="button" onClick={handleCancel}>
-        Cancel
-      </button>
-      <button type="submit">Add</button>
+      <div className={styles["add-filter-form-buttons"]}>
+        <button type="button" onClick={handleCancel}>
+          Cancel
+        </button>
+        <button type="submit">Add</button>
+      </div>
     </form>
   );
 };

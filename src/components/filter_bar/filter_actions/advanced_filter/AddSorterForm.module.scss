@@ -1,0 +1,15 @@
+.sorter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.buttons-wrapper {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+
+  :first-child {
+    background-color: transparent;
+  }
+}

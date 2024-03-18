@@ -88,8 +88,11 @@ h1 {
 }
 
 button {
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  padding: 0.5rem 1rem;
+  border-radius: $border-radius;
+  border-width: 1px;
+  border-color: transparent;
+  border-style: solid;
   font-size: 1em;
   font-family: inherit;
   cursor: pointer;
@@ -97,6 +100,7 @@ button {
 
   @include themify-global($themes) {
     color: themed("fo-color-light");
+    background-color: themed("bg-color2");
   }
 }
 button:hover {

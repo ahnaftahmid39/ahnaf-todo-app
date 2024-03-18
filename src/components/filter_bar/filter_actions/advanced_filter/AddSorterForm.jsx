@@ -2,6 +2,7 @@ import { useState } from "react";
 import { SORTING_ORDERS, fields } from "../../../../utils/constants";
 import useTodoStore from "../../../../store/todoStore";
 import styles from "./AddSorterForm.module.scss";
+import Select from "../../../form_ui/Select";
 
 const sortableFields = [
   fields.createdAt,
@@ -37,46 +38,41 @@ const AddSorterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <select
-          defaultValue={"Select Field"}
-          className={styles["select-field"]}
-          onChange={handleFieldNameChange}
-        >
-          <option value="Select Field" disabled>
-            Select Field
-          </option>
-          {sortableFields.map((field, idx) => {
-            if (usedSorterFields.includes(field)) return null;
-            return (
-              <option value={field} key={idx}>
-                {field}
-              </option>
-            );
-          })}
-        </select>
-      </div>
-      <div>
-        <select
-          className={styles["select-order"]}
-          onChange={handleOrderChange}
-          defaultValue={"default"}
-        >
-          <option value="default" disabled>
-            Select Order
-          </option>
-          {Object.values(SORTING_ORDERS).map((value, idx) => (
-            <option value={value} key={idx}>
-              {value}
+    <form className={styles["sorter-form"]} onSubmit={handleSubmit}>
+      <Select
+        className={styles["select-field"]}
+        onChange={handleFieldNameChange}
+        label={"Select Field"}
+      >
+        {sortableFields.map((field, idx) => {
+          return (
+            <option
+              disabled={usedSorterFields.includes(field)}
+              value={field}
+              key={idx}
+            >
+              {field}
             </option>
-          ))}
-        </select>
+          );
+        })}
+      </Select>
+      <Select
+        className={styles["select-order"]}
+        onChange={handleOrderChange}
+        label={"Select Order"}
+      >
+        {Object.values(SORTING_ORDERS).map((value, idx) => (
+          <option value={value} key={idx}>
+            {value}
+          </option>
+        ))}
+      </Select>
+      <div className={styles['buttons-wrapper']}>
+        <button type="button" onClick={handleCancel}>
+          Cancel
+        </button>
+        <button type="submit">Add</button>
       </div>
-      <button type="button" onClick={handleCancel}>
-        Cancel
-      </button>
-      <button type="submit">Add</button>
     </form>
   );
 };

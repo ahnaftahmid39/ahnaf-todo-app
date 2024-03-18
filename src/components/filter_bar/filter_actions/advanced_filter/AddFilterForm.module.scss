@@ -1,0 +1,19 @@
+@import "../../../../sass/globals";
+
+.filter-form {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.add-filter-form-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+
+  button {
+    &:first-of-type {
+      background-color: transparent;
+    }
+  }
+}

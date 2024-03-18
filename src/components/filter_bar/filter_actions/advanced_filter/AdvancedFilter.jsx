@@ -6,9 +6,10 @@ import ViewFilters from "./ViewFilters";
 import AddSorterForm from "./AddSorterForm";
 import ViewSorters from "./ViewSorters";
 import { useHotkeys } from "react-hotkeys-hook";
+import { IoIosCloseCircleOutline } from "react-icons/io";
 
 const AdvancedFilter = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   const openModal = () => {
     setIsOpen(true);
@@ -31,12 +32,19 @@ const AdvancedFilter = () => {
       <button onClick={openModal}>Advanced Filter</button>
       <Modal open={isOpen} handleClose={closeModal}>
         <div className={styles["wrapper"]}>
+          <div className={styles["filter-title-close-wrapper"]}>
+            <label>Advanced Fitlers</label>
+            <button onClick={closeModal}>
+              <IoIosCloseCircleOutline size={24} />
+            </button>
+          </div>
           <div className={styles["filter-wrapper"]}>
-            <div>Filters</div>
+            <label>Filters:</label>
             <AddFilterForm />
             <ViewFilters />
           </div>
           <div className={styles["sorter-wrapper"]}>
+            <label>Sorters:</label>
             <AddSorterForm />
             <ViewSorters />
           </div>

@@ -9,6 +9,8 @@ const Select = ({
   options,
   onChangeHandler,
   resetCounter,
+  children,
+  ...props
 }) => {
   const select = useRef(null);
   useEffect(() => {
@@ -26,12 +28,15 @@ const Select = ({
           name={fieldName}
           defaultValue={defaultValue}
           onChange={onChangeHandler}
+          {...props}
         >
-          {options.map((x, i) => (
-            <option key={i} value={x}>
-              {x}
-            </option>
-          ))}
+          {children != undefined
+            ? children
+            : options.map((x, i) => (
+                <option key={i} value={x}>
+                  {x}
+                </option>
+              ))}
         </select>
         <span className={formStyles["select-custom-arrow"]}>
           <HiOutlineSelector size={20} />
