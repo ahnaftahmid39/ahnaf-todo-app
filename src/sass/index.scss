@@ -131,9 +131,9 @@ svg {
 }
 
 kbd {
-  border-radius: $border-radius / 2;
-  padding: $border-radius / 4;
-  padding-inline: $border-radius / 2;
+  border-radius: calc($border-radius / 2);
+  padding: calc($border-radius / 4);
+  padding-inline: calc($border-radius / 2);
   @include themify-global($themes) {
     background-color: themed("bg-color3");
     color: themed("fo-color-light");
