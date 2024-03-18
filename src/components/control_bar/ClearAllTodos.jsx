@@ -34,7 +34,7 @@ const ClearAllTodos = () => {
 
   return (
     <>
-      <button ref={btnRef} onClick={showModal}>
+      <button title="Clear All Todos" ref={btnRef} onClick={showModal}>
         <CiTrash size={32} />
       </button>
       <Modal open={isOpen} handleClose={closeModal}>

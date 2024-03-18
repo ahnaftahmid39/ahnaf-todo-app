@@ -14,7 +14,7 @@ const ClearAllFilter = () => {
   });
   return (
     <>
-      <button onClick={handleClearAllFilters}>Reset</button>
+      <button onClick={handleClearAllFilters}>Reset Filters</button>
     </>
   );
 };

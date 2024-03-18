@@ -19,7 +19,7 @@ const ToggleTheme = () => {
 
   return (
     <>
-      <button onClick={toggleTheme}> {buttonIcon}</button>
+      <button title="Toggle Theme" onClick={toggleTheme}> {buttonIcon}</button>
     </>
   );
 };

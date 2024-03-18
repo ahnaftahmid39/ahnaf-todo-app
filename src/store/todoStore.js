@@ -69,6 +69,20 @@ const useTodoStore = create((set, get) => ({
     set((state) => ({ todos: [...state.todos, todo] }));
     PersistTodo.setTodos(get().todos);
   },
+
+  addMockTodos: (todos = []) => {
+    set((state) => ({
+      todos: [
+        ...state.todos,
+        ...todos.map((todo) => ({ ...todo, isMock: true })),
+      ],
+    }));
+  },
+  removeMockTodos: () => {
+    set((state) => ({
+      todos: state.todos.filter((todo) => !todo.isMock),
+    }));
+  },
   removeTodo: (id) => {
     set((state) => ({
       todos: state.todos.filter((todo) => todo.id !== id),

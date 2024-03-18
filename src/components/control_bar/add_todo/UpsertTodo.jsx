@@ -87,7 +87,7 @@ const UpsertTodo = ({
 
   return (
     <>
-      <button ref={btnRef} onClick={handleAddOrEditButton}>
+      <button title={label} ref={btnRef} onClick={handleAddOrEditButton}>
         {label.toLowerCase() === "new" ? (
           <CiCirclePlus size={32} />
         ) : (

@@ -3,7 +3,8 @@ import styles from "./SearchBar.module.scss";
 import { CiSearch } from "react-icons/ci";
 import useTodoStore from "../../../store/todoStore";
 import { useHotkeys } from "react-hotkeys-hook";
-const SearchBar = ({ placeholder = "Search (ctrl + k)" }) => {
+
+const SearchBar = ({ placeholder = "Search (Ctrl + K)" }) => {
   const setSearchText = useTodoStore((state) => state.setSearchText);
   const inputRef = useRef(null);
 

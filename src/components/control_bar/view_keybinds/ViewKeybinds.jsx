@@ -28,7 +28,7 @@ const ViewKeybinds = () => {
 
   return (
     <>
-      <button ref={btnRef} type="button" onClick={showModal}>
+      <button title="View Keybinds" ref={btnRef} type="button" onClick={showModal}>
         <CiKeyboard size={32} />
       </button>
       <Modal open={isOpen} handleClose={closeModal}>
