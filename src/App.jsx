@@ -6,6 +6,7 @@ import { getTodos } from "./utils/persistStore";
 import useTodoStore from "./store/todoStore";
 import { useThemeStore } from "./store/themeStore";
 import FilterBar from "./components/filter_bar/FilterBar";
+import ViewKeybinds from "./components/control_bar/view_keybinds/ViewKeybinds";
 
 function App() {
   useEffect(() => {

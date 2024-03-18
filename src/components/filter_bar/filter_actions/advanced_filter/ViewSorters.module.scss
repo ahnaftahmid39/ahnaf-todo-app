@@ -1,11 +1,11 @@
 @import "../../../../sass/globals";
 
-.filter-list-wrapper {
+.view-sorters-wrapper {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 
-  .filter-details-wrapper {
+  .sorter-details-wrapper {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -17,10 +17,9 @@
     @include themify($themes) {
       border-color: themed("border-color");
     }
-    .filter-values {
+    .sorter-values {
       display: flex;
       flex-direction: column;
-      // gap: 1rem;
 
       div {
         padding: 0.5rem;

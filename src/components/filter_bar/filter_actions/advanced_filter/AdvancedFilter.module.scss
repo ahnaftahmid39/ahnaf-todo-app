@@ -37,8 +37,10 @@
     display: flex;
     gap: 1rem;
     flex-direction: column;
-    label {
+    & > label {
       font-weight: 500;
+      text-decoration: underline;
+      font-size: 1rem;
     }
   }
 }

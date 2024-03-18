@@ -1,25 +1,25 @@
 import useTodoStore from "../../../../store/todoStore";
-
+import styles from "./ViewSorters.module.scss";
 const ViewSorters = () => {
   const sorters = useTodoStore((state) => state.sorters);
   const removeSorter = useTodoStore((state) => state.removeSorter);
 
   return (
-    <div>
+    <div className={styles["view-sorters-wrapper"]}>
       {sorters.map((sorter, idx) => {
         const handleRemove = () => {
           removeSorter(idx);
         };
         return (
-          <div key={idx}>
-            <div>
+          <div className={styles["sorter-details-wrapper"]} key={idx}>
+            <div className={styles["sorter-values"]}>
               <div>
-                <div>Sorting Field:</div>
-                <div>{sorter.fieldName}</div>
+                <label>Sorting Field:</label>
+                <span>{sorter.fieldName}</span>
               </div>
               <div>
-                <div>Order:</div>
-                <div>{sorter.order}</div>
+                <label>Order:</label>
+                <span>{sorter.order}</span>
               </div>
             </div>
             <div>

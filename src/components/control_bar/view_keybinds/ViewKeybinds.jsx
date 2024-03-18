@@ -1,7 +1,9 @@
 import { useRef, useState } from "react";
 import Modal from "../../modal/Modal";
 import { useHotkeys } from "react-hotkeys-hook";
-import { CiKeyboard } from "react-icons/ci";
+import { CiCircleRemove, CiKeyboard } from "react-icons/ci";
+
+import styles from "./ViewKeybinds.module.scss";
 
 const ViewKeybinds = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,48 +32,45 @@ const ViewKeybinds = () => {
         <CiKeyboard size={32} />
       </button>
       <Modal open={isOpen} handleClose={closeModal}>
-        <div>
-          <h2>Keybinds</h2>
+        <div className={styles["wrapper"]}>
+          <div className={styles["title-close-wrapper"]}>
+            <h2>Keybinds</h2>
+            <button onClick={closeModal}>
+              <CiCircleRemove size={24} />
+            </button>
+          </div>
           <ul>
             <li>
-              <span>shift + a</span>
-              <br></br>
-              <span>Add New Todo</span>
+              <span> Add New Todo</span>
+              <kbd>shift + a</kbd>
             </li>
             <li>
-              <span>shift + h</span>
-              <br></br>
-              <span>Show Keybinds</span>
+              <span> Show Keybinds</span>
+              <kbd>shift + h</kbd>
             </li>
             <li>
-              <span>shift + t</span>
-              <br></br>
               <span>Toggle Theme</span>
+              <kbd>shift + t</kbd>
             </li>
             <li>
-              <span>shift + x</span>
-              <br></br>
-              <span>Clear All Todos</span>
+              <span> Clear All Todos</span>
+              <kbd>shift + x</kbd>
             </li>
             <li>
-              <span>ctrl + k</span>
-              <br></br>
-              <span>Go to Search Bar</span>
+              <span> Go to Search Bar</span>
+              <kbd>ctrl + k</kbd>
             </li>
             <li>
-              <span>alt + i</span>
-              <br></br>
-              <span>Filter In-progress Todos </span>
+              <span> Filter In-progress Todos </span>
+              <kbd>alt + i</kbd>
             </li>
             <li>
-              <span>alt + p</span>
-              <br></br>
-              <span>Filter Pending</span>
+              <span> Filter Pending</span>
+              <kbd>alt + p</kbd>
             </li>
             <li>
-              <span>alt + m</span>
-              <br></br>
-              <span>Reset Filter</span>
+              <span> Reset Filter</span>
+              <kbd>alt + m</kbd>
             </li>
           </ul>
         </div>
