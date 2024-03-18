@@ -12,9 +12,12 @@
   gap: 1rem;
   justify-content: flex-end;
 
-  button {
-    &:first-of-type {
-      background-color: transparent;
+  @include themify($themes) {
+    button {
+      background-color: themed("bg-color2");
     }
+  }
+  button:first-of-type {
+    background-color: transparent;
   }
 }

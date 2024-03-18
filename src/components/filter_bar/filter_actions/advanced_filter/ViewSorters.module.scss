@@ -14,6 +14,13 @@
     border: 1px solid grey;
     padding: 1rem;
 
+    button {
+      width: 100%;
+      @include themify($themes) {
+        background-color: themed("bg-color2");
+      }
+    }
+
     @include themify($themes) {
       border-color: themed("border-color");
     }

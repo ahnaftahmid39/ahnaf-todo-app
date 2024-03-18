@@ -1,3 +1,5 @@
+@import "../../../../sass/globals";
+
 .sorter-form {
   display: flex;
   flex-direction: column;
@@ -10,7 +12,12 @@
   gap: 1rem;
   justify-content: flex-end;
 
-  :first-child {
+  @include themify($themes) {
+    button {
+      background-color: themed("bg-color2");
+    }
+  }
+  button:first-of-type {
     background-color: transparent;
   }
 }

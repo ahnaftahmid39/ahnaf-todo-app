@@ -141,3 +141,18 @@ kbd {
     border-bottom: 4px solid themed("border-color");
   }
 }
+
+// scrollbar styling
+*::-webkit-scrollbar {
+  width: 0.5rem;
+}
+*::-webkit-scrollbar-thumb {
+  @include themify-global($themes) {
+    background-color: themed("bg-color4");
+  }
+}
+*::-webkit-scrollbar-track {
+  @include themify-global($themes) {
+    background-color: themed("bg-color3");
+  }
+}

@@ -65,6 +65,12 @@ const ViewKeybinds = () => {
               </span>
             </li>
             <li>
+              <span> Toggle Mock data</span>
+              <span>
+                <kbd>shift</kbd> + <kbd>m</kbd>
+              </span>
+            </li>
+            <li>
               <span> Go to Search Bar</span>
               <span>
                 <kbd>ctrl</kbd> + <kbd>k</kbd>

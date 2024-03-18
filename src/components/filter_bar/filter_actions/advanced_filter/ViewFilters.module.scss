@@ -17,6 +17,11 @@
     @include themify($themes) {
       border-color: themed("border-color");
     }
+    button {
+      @include themify($themes) {
+        background-color: themed("bg-color2");
+      }
+    }
     .filter-values {
       display: flex;
       flex-direction: column;
