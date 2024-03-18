@@ -24,6 +24,8 @@ const UpsertTodo = ({
 }) => {
   const addTodo = useTodoStore((state) => state.addTodo);
   const updateTodo = useTodoStore((state) => state.updateTodo);
+  const clearFilters = useTodoStore((state) => state.clearFilters);
+  const clearSorters = useTodoStore((state) => state.clearSorters);
 
   useHotkeys(
     "shift+a",
@@ -76,6 +78,8 @@ const UpsertTodo = ({
         createdAt: currentDateTime,
         updatedAt: currentDateTime,
       });
+      clearFilters();
+      clearSorters();
     }
     closeModal();
     resetForm();
