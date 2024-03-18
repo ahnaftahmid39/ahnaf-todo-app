@@ -37,6 +37,8 @@
     text-align: center;
   }
 
+  align-items: center;
+
   @include themify($themes) {
     border-bottom: 1px solid themed("bg-color4");
   }

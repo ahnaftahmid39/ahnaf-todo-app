@@ -1,4 +1,20 @@
 @import "../../../sass/globals";
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: block;
+  background-color: hsla(0, 0%, 0%, 0.247);
+  z-index: 5;
+}
+.actions-wrapper {
+  display: none;
+  position: absolute;
+  flex-direction: column;
+  right: 1rem;
+  top: -1rem;
+
+  width: 15rem;
+}
 .action-button {
   background-color: transparent;
   padding: 0;
@@ -11,18 +27,17 @@
 }
 .todo-actions-popup-wrapper {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .action-buttons-wrapper {
-  display: none;
-  position: absolute;
+  display: flex;
   flex-direction: column;
   padding: 1rem;
   gap: 1rem;
-  right: -1rem;
-  top: -1rem;
   border-radius: $border-radius;
 
-  width: 15rem;
   z-index: 10;
   @include themify($themes) {
     background-color: themed("bg-color");
@@ -68,6 +83,10 @@
   }
 }
 
-.action-buttons-wrapper[aria-hidden="false"] {
+.actions-wrapper[aria-hidden="false"] {
   display: flex;
+
+  .overlay {
+    display: block;
+  }
 }

@@ -60,7 +60,7 @@ const TodosView = () => {
   return (
     <div className={styles["todos-wrapper"]}>
       <HeadingsBar className={styles["todo-header"]} />
-      <div className={styles['todos-view']}>
+      <div className={styles["todos-view"]}>
         {finalTodos.map((todo, idx) => {
           const createdAt = new Date(todo.createdAt);
           const timeDiff = getDateTime(createdAt);
@@ -70,14 +70,12 @@ const TodosView = () => {
               key={todo.id}
             >
               <div>{idx + 1}</div>
-              <div className={styles['title']}>{todo.title}</div>
-              <div className={styles['description']}>{todo.description}</div>
+              <div className={styles["title"]}>{todo.title}</div>
+              <div className={styles["description"]}>{todo.description}</div>
               <div>{todo.status}</div>
               <div>{todo.priority}</div>
               <div>{timeDiff}</div>
-              <div>
-                <TodoActions todo={todo} />
-              </div>
+              <TodoActions todo={todo} />
             </div>
           );
         })}
