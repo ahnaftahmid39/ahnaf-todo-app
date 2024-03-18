@@ -9,7 +9,7 @@ import { useHotkeys } from "react-hotkeys-hook";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 
 const AdvancedFilter = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
     setIsOpen(true);
