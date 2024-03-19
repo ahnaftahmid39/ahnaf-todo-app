@@ -62,6 +62,19 @@ const TodosView = () => {
     <div className={styles["todos-wrapper"]}>
       <HeadingsBar className={styles["todo-header"]} />
       <div className={styles["todos-view"]}>
+        {todos.length === 0 && (
+          <span className={styles["no-todos"]}>
+            No Todos to show, Add todos by clicking <kbd>+</kbd> button below or
+            pressing <kbd>shift</kbd> + <kbd>a</kbd>
+          </span>
+        )}
+        {
+          todos.length > 0 && finalTodos.length === 0 && (
+            <span className={styles["no-todos"]}>
+              No Todos to found, try changing filters or search
+            </span>
+          )
+        }
         {finalTodos.map((todo, idx) => {
           const createdAt = new Date(todo.createdAt);
           const timeDiff = fromNow(createdAt);
@@ -74,11 +87,10 @@ const TodosView = () => {
               <div className={styles["title"]}>{todo.title}</div>
               <div className={styles["description"]}>{todo.description}</div>
               <div
-                className={styles['status']}
+                className={styles["status"]}
                 style={{
                   color: statusColorMapper[todo.status],
                   backgroundColor: `${statusColorMapper[todo.status]}20`,
-                  
                 }}
               >
                 {todo.status}

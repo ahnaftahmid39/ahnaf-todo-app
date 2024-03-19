@@ -22,6 +22,16 @@
     height: 65vh !important;
   }
 }
+.no-todos {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  @include themify($themes) {
+    color: themed("fo-color-light");
+  }
+}
 
 .todo-header,
 .todo-row {
