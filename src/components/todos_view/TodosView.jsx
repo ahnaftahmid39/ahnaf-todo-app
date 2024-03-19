@@ -63,18 +63,18 @@ const TodosView = () => {
       <HeadingsBar className={styles["todo-header"]} />
       <div className={styles["todos-view"]}>
         {todos.length === 0 && (
-          <span className={styles["no-todos"]}>
-            No Todos to show, Add todos by clicking <kbd>+</kbd> button below or
-            pressing <kbd>shift</kbd> + <kbd>a</kbd>
-          </span>
-        )}
-        {
-          todos.length > 0 && finalTodos.length === 0 && (
-            <span className={styles["no-todos"]}>
-              No Todos to found, try changing filters or search
+          <div className={styles["no-todos"]}>
+            <span>
+              No Todos to show, Add todos by clicking <kbd>+</kbd> button below
+              or pressing <kbd>shift</kbd> + <kbd>a</kbd>
             </span>
-          )
-        }
+          </div>
+        )}
+        {todos.length > 0 && finalTodos.length === 0 && (
+          <div className={styles["no-todos"]}>
+            <span>No Todos to found, try changing filters or search</span>
+          </div>
+        )}
         {finalTodos.map((todo, idx) => {
           const createdAt = new Date(todo.createdAt);
           const timeDiff = fromNow(createdAt);
