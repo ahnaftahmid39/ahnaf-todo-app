@@ -7,15 +7,35 @@
 
 .todos-view {
   overflow: auto;
-  height: 65vh;
+  height: 50vh;
 }
+[data-collapsed="true"] + .todos-wrapper {
+  .todos-view {
+    height: 65vh;
+  }
+}
+
+.todos-view {
+  margin-top: 1rem;
+  @media screen and (min-width: 768px) {
+    margin-top: 0;
+    height: 65vh !important;
+  }
+}
+
 .todo-header,
 .todo-row {
   padding: 1rem 0rem;
-  display: grid;
   $pw: 6.25;
   grid-template-columns: 1fr 2.5fr 5fr 2fr 2fr 2.5fr 1fr;
   gap: 1rem;
+}
+.todo-header {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: grid;
+  }
 }
 .serial {
   @include themify($themes) {
@@ -28,9 +48,30 @@
 .serial,
 .title,
 .description {
-  align-self: flex-start;
+  align-self: center;
 }
+
+.status {
+  font-weight: 400;
+  font-size: 0.9rem;
+  border-radius: $border-radius;
+  width: fit-content;
+  justify-self: center;
+  padding: calc($border-radius / 4) $border-radius;
+}
+
 .todo-row {
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 768px) {
+    display: grid;
+    .serial,
+    .title,
+    .description {
+      align-self: flex-start;
+    }
+  }
   & > * {
     text-align: center;
   }
@@ -46,5 +87,6 @@
   // }
   &:last-child {
     border: none;
+    margin-bottom: 3rem;
   }
 }

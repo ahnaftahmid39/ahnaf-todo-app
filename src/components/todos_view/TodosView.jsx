@@ -74,10 +74,11 @@ const TodosView = () => {
               <div className={styles["title"]}>{todo.title}</div>
               <div className={styles["description"]}>{todo.description}</div>
               <div
+                className={styles['status']}
                 style={{
                   color: statusColorMapper[todo.status],
-                  fontWeight: "500",
-                  textTransform: "capitalize",
+                  backgroundColor: `${statusColorMapper[todo.status]}20`,
+                  
                 }}
               >
                 {todo.status}

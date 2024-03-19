@@ -8,6 +8,29 @@
   gap: 1rem;
   width: 100%;
 
+  .search-collapse-wrapper {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+
+    @media screen and (min-width: 1080px) {
+      width: 40%;
+    }
+
+    .expand-button,
+    .collapse-button {
+      padding: 0;
+      background-color: transparent;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .expand-button,
+    .collapse-button {
+      display: none;
+    }
+  }
+
   @include themify($themes) {
     background-color: themed("bg-color");
   }
@@ -17,9 +40,16 @@
   }
 
   .action-buttons-wrapper {
-    display: flex;
+    display: none;
+    flex-direction: column;
     width: 100%;
     gap: 1rem;
+    max-height: 50%;
+
+    @media screen and (min-width: 768px) {
+      display: flex;
+      flex-direction: row;
+    }
 
     button {
       text-transform: capitalize;
@@ -31,6 +61,14 @@
     }
     @media screen and (min-width: 1080px) {
       width: 60%;
+    }
+  }
+}
+
+[data-collapsed="false"] {
+  .action-buttons-wrapper {
+    @media screen and (max-width: 768px) {
+      display: flex;
     }
   }
 }

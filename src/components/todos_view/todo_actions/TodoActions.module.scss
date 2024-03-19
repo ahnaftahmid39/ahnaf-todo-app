@@ -3,17 +3,20 @@
   position: fixed;
   inset: 0;
   display: block;
-  background-color: hsla(0, 0%, 0%, 0.247);
+  background-color: hsla(0, 0%, 0%, 0.25);
   z-index: 5;
 }
 .actions-wrapper {
   display: none;
   position: absolute;
   flex-direction: column;
-  right: 1rem;
-  top: -1rem;
-
   width: 15rem;
+
+  top: 1rem;
+  @media screen and (min-width: 768px) {
+    right: 1rem;
+    top: -1rem;
+  }
 }
 .action-button {
   background-color: transparent;
